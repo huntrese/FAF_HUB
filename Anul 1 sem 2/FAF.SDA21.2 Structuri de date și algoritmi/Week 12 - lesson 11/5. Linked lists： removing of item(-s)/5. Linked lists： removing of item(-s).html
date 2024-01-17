@@ -1,0 +1,90 @@
+<h1>Linked lists</h1>
+<hr />
+<h3><span style="font-size: 1.75rem;">Removing the first item (popping from the list)</span></h3>
+<p>To pop a variable, we will need to reverse this action:</p>
+<ol>
+<li>Take the next item that the head points to and save it</li>
+<li>Free the head item</li>
+<li>Set the head to be the next item that we've stored on the side</li>
+</ol>
+<p>Here is the code:</p>
+<pre class="  language-c"><code class="  language-c"><span class="token keyword">int</span> <span class="token function">pop</span><span class="token punctuation">(</span>node_t <span class="token operator">*</span><span class="token operator">*</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> retval <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    node_t <span class="token operator">*</span> next_node <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>head <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    next_node <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>head<span class="token punctuation">)</span><span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    retval <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>head<span class="token punctuation">)</span><span class="token operator">-&gt;</span>val<span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span><span class="token operator">*</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">*</span>head <span class="token operator">=</span> next_node<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> retval<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3>Removing the last item of the list</h3>
+<p>Removing the last item from a list is very similar to adding it to the end of the list, but with one big exception - since we have to change one item before the last item, we actually have to look two items ahead and see if the next item is the last one in the list:</p>
+<pre class="  language-c"><code class="  language-c"><span class="token keyword">int</span> <span class="token function">remove_last</span><span class="token punctuation">(</span>node_t <span class="token operator">*</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> retval <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/* if there is only one item in the list, remove it */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        retval <span class="token operator">=</span> head<span class="token operator">-&gt;</span>val<span class="token punctuation">;</span>
+        <span class="token function">free</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> retval<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/* get to the second to last node in the list */</span>
+    node_t <span class="token operator">*</span> current <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>current<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        current <span class="token operator">=</span> current<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/* now current points to the second to last item of the list, so let's remove current-&gt;next */</span>
+    retval <span class="token operator">=</span> current<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>val<span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>current<span class="token operator">-&gt;</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    current<span class="token operator">-&gt;</span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> retval<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h3>Removing a specific item</h3>
+<p>To remove a specific item from the list, either by its index from the beginning of the list or by its value, we will need to go over all the items, continuously looking ahead to find out if we've reached the node before the item we wish to remove. This is because we need to change the location to where the previous node points to as well.</p>
+<p>Here is the algorithm:</p>
+<ol>
+<li>Iterate to the node before the node we wish to delete</li>
+<li>Save the node we wish to delete in a temporary pointer</li>
+<li>Set the previous node's next pointer to point to the node after the node we wish to delete</li>
+<li>Delete the node using the temporary pointer</li>
+</ol>
+<p>There are a few edge cases we need to take care of, so make sure you understand the code.</p>
+<pre class="  language-c"><code class="  language-c"><span class="token keyword">int</span> <span class="token function">remove_by_index</span><span class="token punctuation">(</span>node_t <span class="token operator">*</span><span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> retval <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    node_t <span class="token operator">*</span> current <span class="token operator">=</span> <span class="token operator">*</span>head<span class="token punctuation">;</span>
+    node_t <span class="token operator">*</span> temp_node <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">pop</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token number">-1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>current<span class="token operator">-&gt;</span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        current <span class="token operator">=</span> current<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>current<span class="token operator">-&gt;</span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    temp_node <span class="token operator">=</span> current<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    retval <span class="token operator">=</span> temp_node<span class="token operator">-&gt;</span>val<span class="token punctuation">;</span>
+    current<span class="token operator">-&gt;</span>next <span class="token operator">=</span> temp_node<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>temp_node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> retval<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>

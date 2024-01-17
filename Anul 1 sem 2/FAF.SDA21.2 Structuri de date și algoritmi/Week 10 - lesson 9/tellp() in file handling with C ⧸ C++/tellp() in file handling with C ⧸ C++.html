@@ -1,0 +1,35 @@
+<h1 class="qa_title">tellp() in file handling with C / C++</h1>
+<div class="qa_category">
+<div id="divCategories"></div>
+<div id="adp_top_ads"></div>
+</div>
+<div id="divResources"></div>
+<div id="downloadContent">
+<p>In C++ file handling, the tellp() function is used with output streams, and returns the current put position of the pointer in the stream. It returns an integer data type, representing the current position of the stream pointer.</p>
+<pre class="result notranslate">tellp() method takes no parameter.
+It is written as: pos_type tellp();</pre>
+<h2>Algorithm</h2>
+<pre class="result notranslate">Begin.
+   Create an object newfile against the class fstream.
+   Call open() method to open a file “tpoint.txt” to perform write operation using object newfile.
+   Insert data into the file object newfile.
+   Call the tellp() method to print the present position of the pointer in the file object.
+   Call close() method to close the file object.
+End.</pre>
+<h2>Example</h2>
+<p><a class="demo" href="http://tpcg.io/eaoZxl" rel="nofollow noopener noreferrer" target="_blank">Live Demo</a></p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;iostream&gt;</span><span class="pln">
+</span><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;iostream&gt;</span><span class="pln">
+</span><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;fstream&gt;</span><span class="pln">
+</span><span class="kwd">using</span><span class="pln"> </span><span class="kwd">namespace</span><span class="pln"> std</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   fstream newfile</span><span class="pun">;</span><span class="pln">
+   newfile</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">"tpoint.txt"</span><span class="pun">,</span><span class="pln"> ios</span><span class="pun">::</span><span class="kwd">out</span><span class="pun">);</span><span class="pln"> </span><span class="com">//open a file to perform write operation using file object</span><span class="pln">
+   newfile </span><span class="pun">&lt;&lt;</span><span class="pln"> </span><span class="str">"Tutorials Point"</span><span class="pun">;</span><span class="pln"> </span><span class="com">//inserting data</span><span class="pln">
+   cout </span><span class="pun">&lt;&lt;</span><span class="pln"> </span><span class="str">"The present position of the pointer in the file: "</span><span class="pln">
+   </span><span class="pun">&lt;&lt;</span><span class="pln"> newfile</span><span class="pun">.</span><span class="pln">tellp</span><span class="pun">()</span><span class="pln"> </span><span class="pun">&lt;&lt;</span><span class="pln"> endl</span><span class="pun">;</span><span class="pln"> </span><span class="com">//position of the pointer in the file object</span><span class="pln">
+   newfile</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span><span class="pln"> </span><span class="com">//close file object.</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<h2>Output</h2>
+<pre class="result notranslate">The present position of the pointer in the file: 15</pre>
+</div>

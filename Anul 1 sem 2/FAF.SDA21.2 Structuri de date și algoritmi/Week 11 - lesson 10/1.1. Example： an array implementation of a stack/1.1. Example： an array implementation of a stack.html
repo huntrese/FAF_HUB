@@ -1,0 +1,124 @@
+<pre class="pre-scrollable prettyprint prettyprinted"><span class="com"></span><span class="com">// Illustrate an array implementation of a stack.</span><span class="pln">
+
+</span><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;stdio.h&gt;</span><span class="pln">
+
+</span><span class="com">// The array will store the items in the stack, first in</span><span class="pln">
+</span><span class="com">// index 0, then 1, etc. top will represent the index</span><span class="pln">
+</span><span class="com">// to the top element in the stack. If the stack is </span><span class="pln">
+</span><span class="com">// empty top will be -1.</span><span class="pln">
+
+</span><span class="com">#define</span><span class="pln"> SIZE </span><span class="lit">10</span><span class="pln">
+</span><span class="com">#define</span><span class="pln"> EMPTY </span><span class="pun">-</span><span class="lit">1</span><span class="pln">
+
+</span><span class="kwd">struct</span><span class="pln"> stack </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="kwd">int</span><span class="pln"> items</span><span class="pun">[</span><span class="pln">SIZE</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> top</span><span class="pun">;</span><span class="pln">   
+</span><span class="pun">};</span><span class="pln">
+
+</span><span class="kwd">void</span><span class="pln"> initialize</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> full</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> push</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> value</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> empty</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> pop</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> top</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">struct</span><span class="pln"> stack mine</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="com">// Set up the stack and push a couple items, then pop one.</span><span class="pln">
+    initialize</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">);</span><span class="pln">
+    push</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">);</span><span class="pln">
+    push</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">);</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"Popping %d\n"</span><span class="pun">,</span><span class="pln"> pop</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">));</span><span class="pln">
+    
+    </span><span class="com">// Push a couple more and test top.</span><span class="pln">
+    push</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">,</span><span class="pln"> </span><span class="lit">22</span><span class="pun">);</span><span class="pln">
+    push</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">,</span><span class="pln"> </span><span class="lit">16</span><span class="pun">);</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"At top now = %d\n"</span><span class="pun">,</span><span class="pln"> top</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">));</span><span class="pln">
+    
+    </span><span class="com">// Pop all three off.</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"Popping %d\n"</span><span class="pun">,</span><span class="pln"> pop</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">));</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"Popping %d\n"</span><span class="pun">,</span><span class="pln"> pop</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">));</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"Popping %d\n"</span><span class="pun">,</span><span class="pln"> pop</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">));</span><span class="pln">
+    
+    </span><span class="com">// Checking the empty function.</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">empty</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">))</span><span class="pln">
+        printf</span><span class="pun">(</span><span class="str">"The stack is empty as expected.\n"</span><span class="pun">);</span><span class="pln">
+        
+    </span><span class="com">// Fill the stack.</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="lit">10</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln">
+        push</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">);</span><span class="pln">
+    
+    </span><span class="com">// Check if full works.</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">full</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">))</span><span class="pln">
+        printf</span><span class="pun">(</span><span class="str">"This stack is full as expected.\n"</span><span class="pun">);</span><span class="pln">
+    
+    </span><span class="com">// Pop everything back off.</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="lit">10</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln">
+        printf</span><span class="pun">(</span><span class="str">"popping %d\n"</span><span class="pun">,</span><span class="pln">pop</span><span class="pun">(&amp;</span><span class="pln">mine</span><span class="pun">));</span><span class="pln">
+        
+    system</span><span class="pun">(</span><span class="str">"PAUSE"</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">void</span><span class="pln"> initialize</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+     stackPtr</span><span class="pun">-&gt;</span><span class="pln">top </span><span class="pun">=</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// If the push occurs, 1 is returned. If the</span><span class="pln">
+</span><span class="com">// stack is full and the push can't be done, 0 is</span><span class="pln">
+</span><span class="com">// returned.</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> push</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> value</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    
+    </span><span class="com">// Check if the stack is full.</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">full</span><span class="pun">(</span><span class="pln">stackPtr</span><span class="pun">))</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+    
+    </span><span class="com">// Add value to the top of the stack and adjust the value of the top.</span><span class="pln">
+    stackPtr</span><span class="pun">-&gt;</span><span class="pln">items</span><span class="pun">[</span><span class="pln">stackPtr</span><span class="pun">-&gt;</span><span class="pln">top</span><span class="pun">+</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">(</span><span class="pln">stackPtr</span><span class="pun">-&gt;</span><span class="pln">top</span><span class="pun">)++;</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Returns true iff the stack pointed to by stackPtr is full.</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> full</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(</span><span class="pln">stackPtr</span><span class="pun">-&gt;</span><span class="pln">top </span><span class="pun">==</span><span class="pln"> SIZE </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Returns true iff the stack pointed to by stackPtr is empty.</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> empty</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">(</span><span class="pln">stackPtr</span><span class="pun">-&gt;</span><span class="pln">top </span><span class="pun">==</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Pre-condition: The stack pointed to by stackPtr is NOT empty.</span><span class="pln">
+</span><span class="com">// Post-condition: The value on the top of the stack is popped and returned.</span><span class="pln">
+</span><span class="com">// Note: If the stack pointed to by stackPtr is empty, -1 is returned.</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> pop</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    
+    </span><span class="kwd">int</span><span class="pln"> retval</span><span class="pun">;</span><span class="pln">
+    
+    </span><span class="com">// Check the case that the stack is empty.</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">stackPtr</span><span class="pun">))</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> EMPTY</span><span class="pun">;</span><span class="pln">
+    
+    </span><span class="com">// Retrieve the item from the top of the stack, adjust the top and return</span><span class="pln">
+    </span><span class="com">// the item.</span><span class="pln">
+    retval </span><span class="pun">=</span><span class="pln"> stackPtr</span><span class="pun">-&gt;</span><span class="pln">items</span><span class="pun">[</span><span class="pln">stackPtr</span><span class="pun">-&gt;</span><span class="pln">top</span><span class="pun">];</span><span class="pln">
+    </span><span class="pun">(</span><span class="pln">stackPtr</span><span class="pun">-&gt;</span><span class="pln">top</span><span class="pun">)--;</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> retval</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Pre-condition: The stack pointed to by stackPtr is NOT empty.</span><span class="pln">
+</span><span class="com">// Post-condition: The value on the top of the stack is returned.</span><span class="pln">
+</span><span class="com">// Note: If the stack pointed to by stackPtr is empty, -1 is returned.</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> top</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> stack</span><span class="pun">*</span><span class="pln"> stackPtr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    
+    </span><span class="com">// Take care of the empty case.</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">stackPtr</span><span class="pun">))</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> EMPTY</span><span class="pun">;</span><span class="pln">
+    
+    </span><span class="com">// Return the desired item.</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> stackPtr</span><span class="pun">-&gt;</span><span class="pln">items</span><span class="pun">[</span><span class="pln">stackPtr</span><span class="pun">-&gt;</span><span class="pln">top</span><span class="pun">];</span><span class="pln">
+</span><span class="pun">}</span></pre>

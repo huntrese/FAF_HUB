@@ -1,0 +1,85 @@
+<h1>C library function - fseek()</h1>
+<hr />
+<div class="mui-container-fluid button-borders">
+<div class="pre-btn"><span style="font-size: 2rem;">Description</span></div>
+</div>
+<p>The C library function <span>int fseek(FILE *stream, long int offset, int whence)</span> sets the file position of the <span>stream</span> to the given <span>offset</span>.</p>
+<h2>Declaration</h2>
+<p>Following is the declaration for fseek() function.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">int</span><span class="pln"> fseek</span><span class="pun">(</span><span class="pln">FILE </span><span class="pun">*</span><span class="pln">stream</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">long</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> offset</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> whence</span><span class="pun">)</span></pre>
+<h2>Parameters</h2>
+<ul class="list">
+<li>
+<p><span>stream</span> − This is the pointer to a FILE object that identifies the stream.</p>
+</li>
+<li>
+<p><span>offset</span> − This is the number of bytes to offset from whence.</p>
+</li>
+<li>
+<p><span>whence</span> − This is the position from where offset is added. It is specified by one of the following constants −</p>
+</li>
+</ul>
+<table class="table table-bordered">
+<tbody>
+<tr><th>Sr.No.</th><th>Constant &amp; Description</th></tr>
+<tr>
+<td class="ts">1</td>
+<td>
+<p><span>SEEK_SET</span></p>
+<p>Beginning of file</p>
+</td>
+</tr>
+<tr>
+<td class="ts">2</td>
+<td>
+<p><span>SEEK_CUR</span></p>
+<p>Current position of the file pointer</p>
+</td>
+</tr>
+<tr>
+<td class="ts">3</td>
+<td>
+<p><span>SEEK_END</span></p>
+<p>End of file</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Return Value</h2>
+<p>This function returns zero if successful, or else it returns a non-zero value.</p>
+<h2>Example</h2>
+<p>The following example shows the usage of fseek() function.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;stdio.h&gt;</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   FILE </span><span class="pun">*</span><span class="pln">fp</span><span class="pun">;</span><span class="pln">
+
+   fp </span><span class="pun">=</span><span class="pln"> fopen</span><span class="pun">(</span><span class="str">"file.txt"</span><span class="pun">,</span><span class="str">"w+"</span><span class="pun">);</span><span class="pln">
+   fputs</span><span class="pun">(</span><span class="str">"This is tutorialspoint.com"</span><span class="pun">,</span><span class="pln"> fp</span><span class="pun">);</span><span class="pln">
+  
+   fseek</span><span class="pun">(</span><span class="pln"> fp</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> SEEK_SET </span><span class="pun">);</span><span class="pln">
+   fputs</span><span class="pun">(</span><span class="str">" C Programming Language"</span><span class="pun">,</span><span class="pln"> fp</span><span class="pun">);</span><span class="pln">
+   fclose</span><span class="pun">(</span><span class="pln">fp</span><span class="pun">);</span><span class="pln">
+   
+   </span><span class="kwd">return</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>Let us compile and run the above program that will create a file <span>file.txt</span> with the following content. Initially program creates the file and writes <i>This is tutorialspoint.com</i> but later we had reset the write pointer at 7th position from the beginning and used puts() statement which over-write the file with the following content −</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="typ">This</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> C </span><span class="typ">Programming</span><span class="pln"> </span><span class="typ">Language</span></pre>
+<p>Now let's see the content of the above file using the following program −</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;stdio.h&gt;</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> main </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   FILE </span><span class="pun">*</span><span class="pln">fp</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">int</span><span class="pln"> c</span><span class="pun">;</span><span class="pln">
+
+   fp </span><span class="pun">=</span><span class="pln"> fopen</span><span class="pun">(</span><span class="str">"file.txt"</span><span class="pun">,</span><span class="str">"r"</span><span class="pun">);</span><span class="pln">
+   </span><span class="kwd">while</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      c </span><span class="pun">=</span><span class="pln"> fgetc</span><span class="pun">(</span><span class="pln">fp</span><span class="pun">);</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> feof</span><span class="pun">(</span><span class="pln">fp</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      printf</span><span class="pun">(</span><span class="str">"%c"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln"> 
+   </span><span class="pun">}</span><span class="pln">
+   fclose</span><span class="pun">(</span><span class="pln">fp</span><span class="pun">);</span><span class="pln">
+   </span><span class="kwd">return</span><span class="pun">(</span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></pre>

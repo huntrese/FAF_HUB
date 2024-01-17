@@ -1,0 +1,23 @@
+<pre class="enlighter-clipboard">CountingSort(A)
+  //A[]-- Initial Array to Sort
+  //Complexity: O(k)
+  for i = 0 to k do
+  c[i] = 0
+
+  //Storing Count of each element
+  //Complexity: O(n)
+  for j = 0 to n do
+  c[A[j]] = c[A[j]] + 1
+
+  // Change C[i] such that it contains actual
+  //position of these elements in output array
+  ////Complexity: O(k)
+  for i = 1 to k do
+  c[i] = c[i] + c[i-1]
+
+  //Build Output array from C[i]
+  //Complexity: O(n)
+  for j = n-1 downto 0 do
+  B[ c[A[j]]-1 ] = A[j]
+  c[A[j]] = c[A[j]] - 1
+end func</pre>

@@ -1,0 +1,22 @@
+<h2>enum</h2>
+<p>The enum refers to a keyword that we use for creating an enumerated data type. The enum is basically a special data type (enumerated data type) that consists of a set of various named values – known as members or elements. We mainly use it for assigning different names to the integral constants. This way, the program becomes much more readable.</p>
+<p>Here is the format that we use for creating the enum type:</p>
+<p><strong>enum identifier (value_a, value_b, …. , value_z);</strong></p>
+<p>The enumerated data types basically allow a user to create symbolic names of their own for a list of all the constants that are related to each other.</p>
+<p>For instance, you can create the enumerated data type for the true and false conditions this way:</p>
+<p><strong>enum Boolean {</strong></p>
+<p><strong>true,</strong></p>
+<p><strong>false</strong></p>
+<p><strong>};</strong></p>
+<p>In case we don’t assign values explicitly to the enum names; the compiler, by default, would assign the values that start from 0.</p>
+<p>In this case, true and false would be automatically assigned to 1 and 0 respectively. In simpler words, the first field of the enum value here will be replaced by 1, and then the next field will be replaced with 0, and so on.</p>
+<p>Let us take a look at an example to display how to use the enum data value.</p>
+<p><strong>#include &lt;stdio.h&gt;</strong></p>
+<p><strong>void main() {</strong></p>
+<p><strong>enum week {MON = 1, TUE, WED, THURS, FRI, SAT, SUN};</strong></p>
+<p><strong>enum week off = FRI;</strong></p>
+<p><strong>printf(“Week Off = %d”, birthday);</strong></p>
+<p><strong>}</strong></p>
+<p>Here, the field name MON will be assigned with the value 1. Thus, the next field name TUE will be assigned with the value 2 automatically, and so on.</p>
+<p>The program mentioned above will print the following output:</p>
+<p><strong>Week Off = 5</strong></p>

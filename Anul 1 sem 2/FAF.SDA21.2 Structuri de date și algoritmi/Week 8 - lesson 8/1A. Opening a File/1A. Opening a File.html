@@ -1,0 +1,224 @@
+<h2><span>Opening a File</span></h2>
+<p><span style="font-size: medium;">Generally, the first operation performed on an object of one of these classes is to associate it to a real file. This procedure is known to open a file.</span></p>
+<p><span style="font-size: medium;">We can open a file using any one of the following methods:</span><br /><span style="font-size: medium;">1. First is bypassing the file name in constructor at the time of object creation.</span><br /><span style="font-size: medium;">2. Second is using the open() function.</span></p>
+<p><span style="font-size: medium;">To open a file use</span></p>
+<div>
+<div id="highlighter_294423" class="syntaxhighlighter  plain">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2"><span style="font-size: medium;">1</span></div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><span style="font-size: medium;"><code class="plain plain">open() function</code></span></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-size: medium;">Syntax</span></p>
+<div>
+<div id="highlighter_777817" class="syntaxhighlighter  plain">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2"><span style="font-size: medium;">1</span></div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><span style="font-size: medium;"><code class="plain plain">void open(const char* file_name,ios::openmode mode);</code></span></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-size: medium;">Here, the first argument of the open function defines the name and format of the file with the address of the file.</span></p>
+<p><span style="font-size: medium;">The second argument represents the mode in which the file has to be opened. The following modes are used as per the requirements.</span></p>
+<table border="1">
+<tbody>
+<tr>
+<td><span style="font-size: medium;"><em>Modes</em></span></td>
+<td><span style="font-size: medium;"><em>Description</em></span></td>
+</tr>
+<tr>
+<td>
+<p><span style="font-size: medium;">in</span></p>
+</td>
+<td>
+<p><span style="font-size: medium;">Opens the file to read(default for ifstream)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-size: medium;">out</span></p>
+</td>
+<td>
+<p><span style="font-size: medium;">Opens the file to write(default for ofstream)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-size: medium;">binary</span></p>
+</td>
+<td>
+<p><span style="font-size: medium;">Opens the file in binary mode</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-size: medium;">app</span></p>
+</td>
+<td>
+<p><span style="font-size: medium;">Opens the file and appends all the outputs at the end</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-size: medium;">ate</span></p>
+</td>
+<td>
+<p><span style="font-size: medium;">Opens the file and moves the control to the end of the file</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-size: medium;">trunc</span></p>
+</td>
+<td>
+<p><span style="font-size: medium;">Removes the data in the existing file</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-size: medium;">nocreate</span></p>
+</td>
+<td>
+<p><span style="font-size: medium;">Opens the file only if it already exists</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-size: medium;">noreplace</span></p>
+</td>
+<td>
+<p><span style="font-size: medium;">Opens the file only if it does not already exist</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size: medium;">Example</span></p>
+<div>
+<div id="highlighter_49512" class="syntaxhighlighter  plain">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2"><span style="font-size: medium;">1</span></div>
+<div class="line number2 index1 alt1"><span style="font-size: medium;">2</span></div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><span style="font-size: medium;"><code class="plain plain">fstream new_file;</code></span></div>
+<div class="line number2 index1 alt1"><span style="font-size: medium;"><code class="plain plain">new_file.open(“newfile.txt”, ios::out);</code></span></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-size: medium;">In the above example, new_file is an object of type fstream, as we know fstream is a class so we need to create an object of this class to use its member functions. So we create new_file object and call open() function. Here we use out mode that allows us to open the file to write in it.</span></p>
+<p><span style="font-size: medium;">Default Open Modes :</span></p>
+<ul>
+<li><span style="font-size: medium;">ifstream ios::in</span></li>
+<li><span style="font-size: medium;">ofstream ios::out</span></li>
+<li><span style="font-size: medium;">fstream ios::in | ios::out</span></li>
+</ul>
+<p><span style="font-size: medium;">We can combine the different modes using or symbol | .</span></p>
+<p><span style="font-size: medium;">Example</span></p>
+<p><span style="font-size: medium;">ofstream new_file;</span></p>
+<div>
+<div id="highlighter_605159" class="syntaxhighlighter  plain">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2"><span style="font-size: medium;">1</span></div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><span style="font-size: medium;"><code class="plain plain">new_file.open(“new_file.txt”, ios::out | ios::app );</code></span></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-size: medium;">Here, input mode and append mode are combined which represents the file is opened for writing and appending the outputs at the end.</span></p>
+<p><span style="font-size: medium;">As soon as the program terminates, the memory is erased and frees up the memory allocated and closes the files which are opened.</span><br /><span style="font-size: medium;">But it is better to use the close() function to close the opened files after the use of the file.</span></p>
+<p><span style="font-size: medium;">Using a stream insertion operator &lt;&lt; we can write information to a file and using stream extraction operator &gt;&gt; we can easily read information from a file.</span></p>
+<p><span style="font-size: medium;">Example of opening/creating a file using the open() function</span></p>
+<div>
+<div id="highlighter_426036" class="syntaxhighlighter  plain">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2"><span style="font-size: medium;">1</span></div>
+<div class="line number2 index1 alt1"><span style="font-size: medium;">2</span></div>
+<div class="line number3 index2 alt2"><span style="font-size: medium;">3</span></div>
+<div class="line number4 index3 alt1"><span style="font-size: medium;">4</span></div>
+<div class="line number5 index4 alt2"><span style="font-size: medium;">5</span></div>
+<div class="line number6 index5 alt1"><span style="font-size: medium;">6</span></div>
+<div class="line number7 index6 alt2"><span style="font-size: medium;">7</span></div>
+<div class="line number8 index7 alt1"><span style="font-size: medium;">8</span></div>
+<div class="line number9 index8 alt2"><span style="font-size: medium;">9</span></div>
+<div class="line number10 index9 alt1"><span style="font-size: medium;">10</span></div>
+<div class="line number11 index10 alt2"><span style="font-size: medium;">11</span></div>
+<div class="line number12 index11 alt1"><span style="font-size: medium;">12</span></div>
+<div class="line number13 index12 alt2"><span style="font-size: medium;">13</span></div>
+<div class="line number14 index13 alt1"><span style="font-size: medium;">14</span></div>
+<div class="line number15 index14 alt2"><span style="font-size: medium;">15</span></div>
+<div class="line number16 index15 alt1"><span style="font-size: medium;">16</span></div>
+<div class="line number17 index16 alt2"><span style="font-size: medium;">17</span></div>
+<div class="line number18 index17 alt1"><span style="font-size: medium;">18</span></div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><span style="font-size: medium;"><code class="plain plain">#include&lt;iostream&gt;</code></span></div>
+<div class="line number2 index1 alt1"><span style="font-size: medium;"><code class="plain plain">#include &lt;fstream&gt;</code></span></div>
+<div class="line number3 index2 alt2"><span style="font-size: medium;"><code class="plain plain">using namespace std;</code></span></div>
+<div class="line number4 index3 alt1"><span style="font-size: medium;"><code class="plain plain">int main()</code></span></div>
+<div class="line number5 index4 alt2"><span style="font-size: medium;"><code class="plain plain">{</code></span></div>
+<div class="line number6 index5 alt1"><span style="font-size: medium;"><code class="plain plain">fstream new_file; </code></span></div>
+<div class="line number7 index6 alt2"><span style="font-size: medium;"><code class="plain plain">new_file.open("new_file",ios::out);  </code></span></div>
+<div class="line number8 index7 alt1"><span style="font-size: medium;"><code class="plain plain">if(!new_file) </code></span></div>
+<div class="line number9 index8 alt2"><span style="font-size: medium;"><code class="plain plain">{</code></span></div>
+<div class="line number10 index9 alt1"><span style="font-size: medium;"><code class="plain plain">cout&lt;&lt;"File creation failed";</code></span></div>
+<div class="line number11 index10 alt2"><span style="font-size: medium;"><code class="plain plain">}</code></span></div>
+<div class="line number12 index11 alt1"><span style="font-size: medium;"><code class="plain plain">else</code></span></div>
+<div class="line number13 index12 alt2"><span style="font-size: medium;"><code class="plain plain">{</code></span></div>
+<div class="line number14 index13 alt1"><span style="font-size: medium;"><code class="plain plain">cout&lt;&lt;"New file created";</code></span></div>
+<div class="line number15 index14 alt2"><span style="font-size: medium;"><code class="plain plain">new_file.close(); // Step 4: Closing file</code></span></div>
+<div class="line number16 index15 alt1"><span style="font-size: medium;"><code class="plain plain">}</code></span></div>
+<div class="line number17 index16 alt2"><span style="font-size: medium;"><code class="plain plain">return 0;</code></span></div>
+<div class="line number18 index17 alt1"><span style="font-size: medium;"><code class="plain plain">}</code></span></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-size: medium;">Output:</span></p>
+<p><span style="font-size: medium;"><img class="aligncenter wp-image-105065 size-full" src="https://www.edureka.co/blog/wp-content/uploads/2019/08/Output-File-Handling-in-C-Edureka.jpg" alt="Output-File Handling in C++- Edureka" width="526" height="103" srcset="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Output-File-Handling-in-C-Edureka.jpg 526w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Output-File-Handling-in-C-Edureka-150x29.jpg 150w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Output-File-Handling-in-C-Edureka-300x59.jpg 300w" sizes="(max-width: 526px) 100vw, 526px" /></span></p>
+<p><span style="font-size: medium;">Explanation</span><br /><span style="font-size: medium;">In the above example we first create an object to class fstream and name it ‘new_file’. Then we apply the open() function on our ‘new_file’ object. We give the name ‘new_file’ to the new file we wish to create and we set the mode to ‘out’ which allows us to write in our file. We use a ‘if’ statement to find if the file already exists or not if it does exist then it will going to print “File creation failed” or it will gonna create a new file and print “New file created”.</span></p>
+<p><span style="font-size: medium;"><a name="WritingtoaFile"></a>Moving on with article on File Handling in C++</span></p>

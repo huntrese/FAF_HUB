@@ -1,0 +1,114 @@
+<h2><span style="font-size: medium;">Writing to a File</span></h2>
+<p><span style="font-size: medium;">Example:</span></p>
+<div>
+<div id="highlighter_661907" class="syntaxhighlighter  plain">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2"><span style="font-size: medium;">1</span></div>
+<div class="line number2 index1 alt1"><span style="font-size: medium;">2</span></div>
+<div class="line number3 index2 alt2"><span style="font-size: medium;">3</span></div>
+<div class="line number4 index3 alt1"><span style="font-size: medium;">4</span></div>
+<div class="line number5 index4 alt2"><span style="font-size: medium;">5</span></div>
+<div class="line number6 index5 alt1"><span style="font-size: medium;">6</span></div>
+<div class="line number7 index6 alt2"><span style="font-size: medium;">7</span></div>
+<div class="line number8 index7 alt1"><span style="font-size: medium;">8</span></div>
+<div class="line number9 index8 alt2"><span style="font-size: medium;">9</span></div>
+<div class="line number10 index9 alt1"><span style="font-size: medium;">10</span></div>
+<div class="line number11 index10 alt2"><span style="font-size: medium;">11</span></div>
+<div class="line number12 index11 alt1"><span style="font-size: medium;">12</span></div>
+<div class="line number13 index12 alt2"><span style="font-size: medium;">13</span></div>
+<div class="line number14 index13 alt1"><span style="font-size: medium;">14</span></div>
+<div class="line number15 index14 alt2"><span style="font-size: medium;">15</span></div>
+<div class="line number16 index15 alt1"><span style="font-size: medium;">16</span></div>
+<div class="line number17 index16 alt2"><span style="font-size: medium;">17</span></div>
+<div class="line number18 index17 alt1"><span style="font-size: medium;">18</span></div>
+<div class="line number19 index18 alt2"><span style="font-size: medium;">19</span></div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><span style="font-size: medium;"><code class="plain plain">#include &lt;iostream&gt;</code></span></div>
+<div class="line number2 index1 alt1"><span style="font-size: medium;"><code class="plain plain">#include &lt;fstream&gt;</code></span></div>
+<div class="line number3 index2 alt2"><span style="font-size: medium;"><code class="plain plain">using namespace std;</code></span></div>
+<div class="line number4 index3 alt1"><span style="font-size: medium;"><code class="plain plain">int main()</code></span></div>
+<div class="line number5 index4 alt2"><span style="font-size: medium;"><code class="plain plain">{</code></span></div>
+<div class="line number6 index5 alt1"><span style="font-size: medium;"><code class="plain plain">fstream new_file; </code></span></div>
+<div class="line number7 index6 alt2"><span style="font-size: medium;"><code class="plain plain">new_file.open("new_file_write.txt",ios::out);  </code></span></div>
+<div class="line number8 index7 alt1"><span style="font-size: medium;"><code class="plain plain">if(!new_file) </code></span></div>
+<div class="line number9 index8 alt2"><span style="font-size: medium;"><code class="plain plain">{</code></span></div>
+<div class="line number10 index9 alt1"><span style="font-size: medium;"><code class="plain plain">cout&lt;&lt;"File creation failed";</code></span></div>
+<div class="line number11 index10 alt2"><span style="font-size: medium;"><code class="plain plain">}</code></span></div>
+<div class="line number12 index11 alt1"><span style="font-size: medium;"><code class="plain plain">else</code></span></div>
+<div class="line number13 index12 alt2"><span style="font-size: medium;"><code class="plain plain">{</code></span></div>
+<div class="line number14 index13 alt1"><span style="font-size: medium;"><code class="plain plain">cout&lt;&lt;"New file created";</code></span></div>
+<div class="line number15 index14 alt2"><span style="font-size: medium;"><code class="plain plain">new_file&lt;&lt;"Learning File handling";    //Writing to file</code></span></div>
+<div class="line number16 index15 alt1"><span style="font-size: medium;"><code class="plain plain">new_file.close(); </code></span></div>
+<div class="line number17 index16 alt2"><span style="font-size: medium;"><code class="plain plain">}   </code></span></div>
+<div class="line number18 index17 alt1"><span style="font-size: medium;"><code class="plain plain">return 0;</code></span></div>
+<div class="line number19 index18 alt2"><span style="font-size: medium;"><code class="plain plain">}</code></span></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-size: medium;">Output:</span></p>
+<p><span style="font-size: medium;"><img class="aligncenter wp-image-105066 size-full  blur-up lazyloaded" src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/2Output-File-Handling-in-C-Edureka.jpg" data-src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/2Output-File-Handling-in-C-Edureka.jpg" alt="Output-File Handling in C++- Edureka" width="526" height="103" data-srcset="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/2Output-File-Handling-in-C-Edureka.jpg 526w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/2Output-File-Handling-in-C-Edureka-150x29.jpg 150w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/2Output-File-Handling-in-C-Edureka-300x59.jpg 300w" data-sizes="(max-width: 526px) 100vw, 526px" sizes="(max-width: 526px) 100vw, 526px" srcset="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/2Output-File-Handling-in-C-Edureka.jpg 526w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/2Output-File-Handling-in-C-Edureka-150x29.jpg 150w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/2Output-File-Handling-in-C-Edureka-300x59.jpg 300w" /></span></p>
+<p><span style="font-size: medium;"><img class="aligncenter wp-image-105067 size-full  blur-up lazyloaded" src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Image-File-Handling-in-C-Edureka.jpg" data-src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Image-File-Handling-in-C-Edureka.jpg" alt="" width="427" height="177" data-srcset="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Image-File-Handling-in-C-Edureka.jpg 427w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Image-File-Handling-in-C-Edureka-150x62.jpg 150w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Image-File-Handling-in-C-Edureka-300x124.jpg 300w" data-sizes="(max-width: 427px) 100vw, 427px" sizes="(max-width: 427px) 100vw, 427px" srcset="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Image-File-Handling-in-C-Edureka.jpg 427w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Image-File-Handling-in-C-Edureka-150x62.jpg 150w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/Image-File-Handling-in-C-Edureka-300x124.jpg 300w" /></span></p>
+<p><span style="font-size: medium;"> </span></p>
+<p><span style="font-size: medium;">Explanation</span></p>
+<p><span style="font-size: medium;">Here we first create a new file “new_file_write” using open() function since we wanted to send output to the file so, we use ios::out. As given in the program, information typed inside the quotes after Insertion Pointer “&lt;&lt;” got passed to the output file.</span></p>
+<p><span style="font-size: medium;"><a name="ReadingfromaFile"></a>Moving on with this article on File Handling in C++</span></p>
+<h2><span style="font-size: medium;">Reading from a File</span></h2>
+<p><span style="font-size: medium;">Example</span></p>
+<div>
+<div id="highlighter_580612" class="syntaxhighlighter  plain">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2"><span style="font-size: medium;">1</span></div>
+<div class="line number2 index1 alt1"><span style="font-size: medium;">2</span></div>
+<div class="line number3 index2 alt2"><span style="font-size: medium;">3</span></div>
+<div class="line number4 index3 alt1"><span style="font-size: medium;">4</span></div>
+<div class="line number5 index4 alt2"><span style="font-size: medium;">5</span></div>
+<div class="line number6 index5 alt1"><span style="font-size: medium;">6</span></div>
+<div class="line number7 index6 alt2"><span style="font-size: medium;">7</span></div>
+<div class="line number8 index7 alt1"><span style="font-size: medium;">8</span></div>
+<div class="line number9 index8 alt2"><span style="font-size: medium;">9</span></div>
+<div class="line number10 index9 alt1"><span style="font-size: medium;">10</span></div>
+<div class="line number11 index10 alt2"><span style="font-size: medium;">11</span></div>
+<div class="line number12 index11 alt1"><span style="font-size: medium;">12</span></div>
+<div class="line number13 index12 alt2"><span style="font-size: medium;">13</span></div>
+<div class="line number14 index13 alt1"><span style="font-size: medium;">14</span></div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><span style="font-size: medium;"><code class="plain plain">#include &lt;iostream&gt;</code></span></div>
+<div class="line number2 index1 alt1"><span style="font-size: medium;"><code class="plain plain">#include &lt;fstream&gt;</code></span></div>
+<div class="line number3 index2 alt2"><span style="font-size: medium;"><code class="plain plain">using namespace std;</code></span></div>
+<div class="line number4 index3 alt1"><span style="font-size: medium;"><code class="plain plain">int main()</code></span></div>
+<div class="line number5 index4 alt2"><span style="font-size: medium;"><code class="plain plain">{</code></span></div>
+<div class="line number6 index5 alt1"><span style="font-size: medium;"><code class="plain plain">fstream new_file; </code></span></div>
+<div class="line number7 index6 alt2"><span style="font-size: medium;"><code class="plain plain">new_file.open("new_file_write.txt",ios::in);   </code></span></div>
+<div class="line number8 index7 alt1"><span style="font-size: medium;"><code class="plain plain">if(!new_file) </code></span></div>
+<div class="line number9 index8 alt2"><span style="font-size: medium;"><code class="plain plain">cout&lt;&lt;"No such file"; } else { char ch; while (!new_file.eof()) { new_file &gt;&gt;ch; </code></span></div>
+<div class="line number10 index9 alt1"><span style="font-size: medium;"><code class="plain plain">cout &lt;&lt; ch;   </code></span></div>
+<div class="line number11 index10 alt2"><span style="font-size: medium;"><code class="plain plain">}</code></span></div>
+<div class="line number12 index11 alt1"><span style="font-size: medium;"><code class="plain plain">new_file.close();    </code></span></div>
+<div class="line number13 index12 alt2"><span style="font-size: medium;"><code class="plain plain">return 0;</code></span></div>
+<div class="line number14 index13 alt1"><span style="font-size: medium;"><code class="plain plain">}</code></span></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><span style="font-size: medium;">Output:</span></p>
+<p><span style="font-size: medium;"><img class="aligncenter wp-image-105069 size-full  blur-up lazyloaded" src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/3Output-File-Handling-in-C-Edureka.jpg" data-src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/3Output-File-Handling-in-C-Edureka.jpg" alt="Output-File Handling in C++- Edureka" width="439" height="58" data-srcset="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/3Output-File-Handling-in-C-Edureka.jpg 439w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/3Output-File-Handling-in-C-Edureka-150x20.jpg 150w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/3Output-File-Handling-in-C-Edureka-300x40.jpg 300w" data-sizes="(max-width: 439px) 100vw, 439px" sizes="(max-width: 439px) 100vw, 439px" srcset="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/3Output-File-Handling-in-C-Edureka.jpg 439w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/3Output-File-Handling-in-C-Edureka-150x20.jpg 150w, https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/08/3Output-File-Handling-in-C-Edureka-300x40.jpg 300w" /></span></p>
+<p><span style="font-size: medium;">Explanation</span></p>
+<p><span style="font-size: medium;">In this example, we read the file that generated id previous example i.e. new_file_write.</span><br /><span style="font-size: medium;">To read a file we need to use ‘in’ mode with syntax ios::in. In the above example, we print the content of the file using extraction operator &gt;&gt;. The output prints without any space because we use only one character at a time, we need to use getline() with a character array to print the whole line as it is.</span></p>
+<p><span style="font-size: medium;"><a name="CloseaFile"></a>Moving on with this article on File Handling in C++</span></p>

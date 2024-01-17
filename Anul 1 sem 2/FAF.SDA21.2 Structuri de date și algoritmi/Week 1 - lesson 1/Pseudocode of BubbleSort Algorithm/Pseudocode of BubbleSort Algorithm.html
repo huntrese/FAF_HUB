@@ -1,0 +1,31 @@
+<p><span style="font-size: large;"><strong>Pseudocode of BubbleSort algorithm</strong></span> can be written as follows −</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">procedure bubbleSort</span><span class="pun">(</span><span class="pln"> list </span><span class="pun">:</span><span class="pln"> array </span><span class="kwd">of</span><span class="pln"> items </span><span class="pun">)</span><span class="pln">
+
+   loop </span><span class="pun">=</span><span class="pln"> list</span><span class="pun">.</span><span class="pln">count</span><span class="pun">;</span><span class="pln">
+   
+   </span><span class="kwd">for</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> to loop</span><span class="pun">-</span><span class="lit">1</span><span class="pln"> </span><span class="kwd">do</span><span class="pun">:</span><span class="pln">
+      swapped </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pln">
+		
+      </span><span class="kwd">for</span><span class="pln"> j </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> to loop</span><span class="pun">-</span><span class="lit">1</span><span class="pln"> </span><span class="kwd">do</span><span class="pun">:</span><span class="pln">
+      
+         </span><span class="com">/* compare the adjacent elements */</span><span class="pln">   
+         </span><span class="kwd">if</span><span class="pln"> list</span><span class="pun">[</span><span class="pln">j</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> list</span><span class="pun">[</span><span class="pln">j</span><span class="pun">+</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+            </span><span class="com">/* swap them */</span><span class="pln">
+            swap</span><span class="pun">(</span><span class="pln"> list</span><span class="pun">[</span><span class="pln">j</span><span class="pun">],</span><span class="pln"> list</span><span class="pun">[</span><span class="pln">j</span><span class="pun">+</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> </span><span class="pun">)</span><span class="pln">		 
+            swapped </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+         </span><span class="kwd">end</span><span class="pln"> </span><span class="kwd">if</span><span class="pln">
+         
+      </span><span class="kwd">end</span><span class="pln"> </span><span class="kwd">for</span><span class="pln">
+      
+      </span><span class="com">/*if no number was swapped that means 
+      array is sorted now, break the loop.*/</span><span class="pln">
+      
+      </span><span class="kwd">if</span><span class="pun">(</span><span class="kwd">not</span><span class="pln"> swapped</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">then</span><span class="pln">
+         </span><span class="kwd">break</span><span class="pln">
+      </span><span class="kwd">end</span><span class="pln"> </span><span class="kwd">if</span><span class="pln">
+      
+   </span><span class="kwd">end</span><span class="pln"> </span><span class="kwd">for</span><span class="pln">
+   
+</span><span class="kwd">end</span><span class="pln"> procedure </span><span class="kwd">return</span><span class="pln"> list</span></pre>
+<h2>Implementation</h2>
+<p>One more issue we did not address in our original algorithm and its improvised pseudocode, is that, after every iteration the highest values settles down at the end of the array. Hence, the next iteration need not include already sorted elements. For this purpose, in our implementation, we restrict the inner loop to avoid already sorted values.</p>

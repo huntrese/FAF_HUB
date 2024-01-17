@@ -1,0 +1,27 @@
+<h6></h6>
+<table>
+<tbody>
+<tr>
+<td>
+<h6>procedure begin shell sort()</h6>
+<h6>   Array: array of items </h6>
+<h6>      while inter &lt; Array.length /3 do: // calculating the interval (inter)</h6>
+<h6>      inter = inter * 3 + 1     </h6>
+<h6>   end while</h6>
+<h6>   while inter &gt; 0 do:</h6>
+<h6>      for out = inter; out &lt; Array.length; out++ do:</h6>
+<h6>      value = Array[out] // select the inserted value</h6>
+<h6>      in= out;</h6>
+<h6>         while in &gt; inter -1 &amp;&amp; Array[in - inter] &gt;= value do: //shifting value to right</h6>
+<h6>            Array[in] = Array[in - inter]</h6>
+<h6>            in = in - inter</h6>
+<h6>         end while   </h6>
+<h6>      Array[in] = value // insert the number at position</h6>
+<h6>      end for</h6>
+<h6>   inter = (inter -1) /3; // calculating interval</h6>
+<h6>   end while</h6>
+<h6>end procedure</h6>
+</td>
+</tr>
+</tbody>
+</table>

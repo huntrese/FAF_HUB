@@ -1,0 +1,21 @@
+<h2>Union</h2>
+<p>A union is basically a collection of various different data types that are present in the C language, but not very similar to each other. The union mainly allows the storage of those data types that are different from each other in the very same memory location.</p>
+<p>Any user will be able to define a union using various members, but at any given time, just a single member would be able to contain the given value. The unions provide us with an efficient way in which we can use the very same memory location for multiple purposes.</p>
+<p>Note that the structures and unions are very similar to each other. The only difference between them is that we can access just a single member of the Union at any given time. It is because the creation of memory is only for one member that has the biggest size (or the highest number of bytes).</p>
+<p>We declare the union using the <em>union</em> keyword, and we can access all the members of a Union using the (.) dot operator.</p>
+<p>The definition and declaration of a union would go like this:</p>
+<p><strong>union tag_name {</strong></p>
+<p><strong>data_typea uvar_a;</strong></p>
+<p><strong>data_typeb uvar_b;</strong></p>
+<p><strong>……</strong></p>
+<p><strong>data_typez uvar_z;</strong></p>
+<p><strong>};</strong></p>
+<p><strong>union tag_name uvar_a, uvar_b,….uvar_z;</strong></p>
+<p>We will understand this better with the help of an example,</p>
+<p><strong>union sample {</strong></p>
+<p><strong>int duration;</strong></p>
+<p><strong>float cost;</strong></p>
+<p><strong>char keyword;</strong></p>
+<p><strong>};</strong></p>
+<p><strong></strong><strong>union sample x;</strong></p>
+<p>In the example mentioned above, the allocation of about 4 bytes of memory occurs to the union variable x. Thus, we can access the members as x.duration, x.cost, x.keyword, etc., but we can only access one of the members at any given time since the very same memory exists for all three members here.</p>

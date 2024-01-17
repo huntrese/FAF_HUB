@@ -1,0 +1,71 @@
+<h2 id="typedef">Keyword typedef</h2>
+<p>We use the <code>typedef</code> keyword to create an alias name for data types. It is commonly used with structures to simplify the syntax of declaring variables.</p>
+<p>For example, let us look at the following code:</p>
+<pre><code class="c hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Distance</span>{</span>
+  <span class="hljs-keyword">int</span> feet;
+  <span class="hljs-keyword">float</span> inch;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Distance</span> <span class="hljs-title">d1</span>, <span class="hljs-title">d2</span>;</span>
+}</code></pre>
+<p>We can use <code>typedef</code> to write an equivalent code with a simplified syntax:</p>
+<pre><code class="c hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Distance</span> {</span>
+  <span class="hljs-keyword">int</span> feet;
+  <span class="hljs-keyword">float</span> inch;
+} distances;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+  distances d1, d2;
+}</code></pre>
+<hr />
+<h3>Example 2: C typedef</h3>
+<div class="code-editor">
+<div class="code-editor__area">
+<div class="pre-code-wrapper">
+<div title="Click to copy" class="copy-code-button"></div>
+<pre class="c-exec"><code class="c hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+
+<span class="hljs-comment">// struct with typedef person</span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Person</span> {</span>
+  <span class="hljs-keyword">char</span> name[<span class="hljs-number">50</span>];
+  <span class="hljs-keyword">int</span> citNo;
+  <span class="hljs-keyword">float</span> salary;
+} person;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+
+  <span class="hljs-comment">// create  Person variable</span>
+  person p1;
+
+  <span class="hljs-comment">// assign value to name of p1</span>
+  <span class="hljs-built_in">strcpy</span>(p1.name, <span class="hljs-string">"George Orwell"</span>);
+
+  <span class="hljs-comment">// assign values to other p1 variables</span>
+  p1.citNo = <span class="hljs-number">1984</span>;
+  p1. salary = <span class="hljs-number">2500</span>;
+
+  <span class="hljs-comment">// print struct variables</span>
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Name: %s\n"</span>, p1.name);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Citizenship No.: %d\n"</span>, p1.citNo);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Salary: %.2f"</span>, p1.salary);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
+</div>
+</div>
+<div class="code-editor__action"><a href="https://www.programiz.com/c-programming/online-compiler" class="btn btn--outlined-dark btn--smallest d-flex align-items-center run-code-button" target="_blank">Run Code<svg class="programiz-icon programiz-icon--small ml-2x"><use xlink:href="/sites/all/themes/programiz/assets/feather-sprite.svg#chevrons-right"></use></svg></a></div>
+</div>
+<p><span>Output</span></p>
+<pre><samp>Name: George Orwell
+Citizenship No.: 1984
+Salary: 2500.00</samp></pre>
+<p>Here, we have used <code>typedef</code> with the <code>Person</code> structure to create an alias <code>person</code>.</p>
+<pre><code class="c hljs cpp"><span class="hljs-comment">// struct with typedef person</span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Person</span> {</span>
+  <span class="hljs-comment">// code</span>
+} person;</code></pre>
+<p>Now, we can simply declare a <code>Person</code> variable using the <code>person</code> alias:</p>
+<pre><code class="c hljs cpp"><span class="hljs-comment">// equivalent to struct Person p1</span>
+person p1;</code></pre>

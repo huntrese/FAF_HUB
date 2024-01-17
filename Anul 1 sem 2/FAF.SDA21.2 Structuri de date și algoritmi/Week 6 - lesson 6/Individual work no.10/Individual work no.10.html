@@ -1,0 +1,7 @@
+<pre>Given an array with n distinct elements, <br />convert the given array to a form where all elements are in range from 0 to n-1. <br />The order of elements is same, i.e., 0 is placed in place of smallest element, <br />1 is placed for second smallest element, … n-1 is placed for largest element.</pre>
+<pre>Input:  arr[] = {10, 40, 20}
+Output: arr[] = {0, 2, 1}
+
+Input:  arr[] = {5, 10, 40, 30, 20}
+Output: arr[] = {0, 1, 4, 3, 2}</pre>
+<pre>In this post, a new solution is discussed. <br />The idea is to create a vector of pairs. E<br />very element of pair contains element and index. We sort vector by array values. <br />After sorting, we copy indexes to original array. </pre>

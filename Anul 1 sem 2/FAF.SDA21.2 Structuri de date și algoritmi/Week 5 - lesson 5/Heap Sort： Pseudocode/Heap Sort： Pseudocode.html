@@ -1,0 +1,40 @@
+<pre>Pseudocode:</pre>
+<div class="enlighter-default enlighter-v-standard enlighter-t-atomic enlighter-hover enlighter-overflow-scroll ">
+<div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div>
+<div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div>
+<div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div>
+<div class="enlighter">
+<div><span class="enlighter-m0">Heapify</span><span class="enlighter-g1">(</span><span class="enlighter-text">A as array, n as int, i as int</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"></span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> max = i</span></div>
+<div><span class="enlighter-text"> leftchild = 2i + </span><span class="enlighter-n1">1</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> rightchild = 2i + </span><span class="enlighter-n1">2</span><span class="enlighter-text"></span></div>
+<div></div>
+<div><span class="enlighter-text"> </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">leftchild </span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">= n</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-m0">and</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">A</span><span class="enlighter-g1">[</span><span class="enlighter-text">i</span><span class="enlighter-g1">]</span><span class="enlighter-text"> </span><span class="enlighter-g1">&lt;</span><span class="enlighter-text"> A</span><span class="enlighter-g1">[</span><span class="enlighter-text">leftchild</span><span class="enlighter-g1">])</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> max = leftchild</span></div>
+<div><span class="enlighter-text"> </span><span class="enlighter-k1">else</span><span class="enlighter-text"> </span></div>
+<div><span class="enlighter-text"> max = i</span></div>
+<div></div>
+<div><span class="enlighter-text"> </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">rightchild </span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">= n</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-m0">and</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">A</span><span class="enlighter-g1">[</span><span class="enlighter-text">max</span><span class="enlighter-g1">]</span><span class="enlighter-text"> </span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"> A</span><span class="enlighter-g1">[</span><span class="enlighter-text">rightchild</span><span class="enlighter-g1">])</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> max = rightchild</span></div>
+<div></div>
+<div><span class="enlighter-text"> </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">max != i</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> </span><span class="enlighter-m0">swap</span><span class="enlighter-g1">(</span><span class="enlighter-text">A</span><span class="enlighter-g1">[</span><span class="enlighter-text">i</span><span class="enlighter-g1">]</span><span class="enlighter-text">, A</span><span class="enlighter-g1">[</span><span class="enlighter-text">max</span><span class="enlighter-g1">])</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> </span><span class="enlighter-m0">Heapify</span><span class="enlighter-g1">(</span><span class="enlighter-text">A, n, max</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"></span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div>
+<div></div>
+<div><span class="enlighter-text"></span><span class="enlighter-m0">Heapsort</span><span class="enlighter-g1">(</span><span class="enlighter-text">A as array</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span></div>
+<div><span class="enlighter-text"></span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> n = </span><span class="enlighter-m0">length</span><span class="enlighter-g1">(</span><span class="enlighter-text">A</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> </span><span class="enlighter-k1">for</span><span class="enlighter-text"> i = n/</span><span class="enlighter-n1">2</span><span class="enlighter-text"> downto </span><span class="enlighter-n1">1</span><span class="enlighter-text"> </span></div>
+<div><span class="enlighter-text"> </span><span class="enlighter-m0">Heapify</span><span class="enlighter-g1">(</span><span class="enlighter-text">A, n ,i</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div>
+<div></div>
+<div><span class="enlighter-text"> </span><span class="enlighter-k1">for</span><span class="enlighter-text"> i = n downto </span><span class="enlighter-n1">2</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> exchange A</span><span class="enlighter-g1">[</span><span class="enlighter-n1">1</span><span class="enlighter-g1">]</span><span class="enlighter-text"> with A</span><span class="enlighter-g1">[</span><span class="enlighter-text">i</span><span class="enlighter-g1">]</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> A.</span><span class="enlighter-m3">heapsize</span><span class="enlighter-text"> = A.</span><span class="enlighter-m3">heapsize</span><span class="enlighter-text"> - </span><span class="enlighter-n1">1</span><span class="enlighter-text"></span></div>
+<div><span class="enlighter-text"> </span><span class="enlighter-m0">Heapify</span><span class="enlighter-g1">(</span><span class="enlighter-text">A, i, </span><span class="enlighter-n1">0</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div>
+<div>
+<pre><span class="enlighter-text"></span><span class="enlighter-g1">}</span></pre>
+</div>
+</div>
+</div>

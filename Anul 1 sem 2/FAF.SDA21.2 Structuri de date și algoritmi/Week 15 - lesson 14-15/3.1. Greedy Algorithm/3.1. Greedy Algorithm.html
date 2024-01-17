@@ -1,0 +1,60 @@
+<h1 class="h1">Greedy Algorithm</h1>
+<p>The greedy method is one of the strategies like Divide and conquer used to solve the problems. This method is used for solving optimization problems. An optimization problem is a problem that demands either maximum or minimum results. Let's understand through some terms.</p>
+<p>The Greedy method is the simplest and straightforward approach. It is not an algorithm, but it is a technique. The main function of this approach is that the decision is taken on the basis of the currently available information. Whatever the current information is present, the decision is made without worrying about the effect of the current decision in future.</p>
+<p>This technique is basically used to determine the feasible solution that may or may not be optimal. The feasible solution is a subset that satisfies the given criteria. The optimal solution is the solution which is the best and the most favorable solution in the subset. In the case of feasible, if more than one solution satisfies the given criteria then those solutions will be considered as the feasible, whereas the optimal solution is the best solution among all the solutions.</p>
+<h3 class="h3">Characteristics of Greedy method</h3>
+<p><span>The following are the characteristics of a greedy method:</span></p>
+<ul class="points">
+<li>To construct the solution in an optimal way, this algorithm creates two sets where one set contains all the chosen items, and another set contains the rejected items.</li>
+<li>A Greedy algorithm makes good local choices in the hope that the solution should be either feasible or optimal.</li>
+</ul>
+<h3 class="h3">Components of Greedy Algorithm</h3>
+<p><span>The components that can be used in the greedy algorithm are:</span></p>
+<ul class="points">
+<li><span>Candidate set:</span> A solution that is created from the set is known as a candidate set.</li>
+<li><span>Selection function:</span> This function is used to choose the candidate or subset which can be added in the solution.</li>
+<li><span>Feasibility function:</span> A function that is used to determine whether the candidate or subset can be used to contribute to the solution or not.</li>
+<li><span>Objective function:</span> A function is used to assign the value to the solution or the partial solution.</li>
+<li><span>Solution function:</span> This function is used to intimate whether the complete function has been reached or not.</li>
+</ul>
+<h3 class="h3">Applications of Greedy Algorithm</h3>
+<ul class="points">
+<li>It is used in finding the shortest path.</li>
+<li>It is used to find the minimum spanning tree using the prim's algorithm or the Kruskal's algorithm.</li>
+<li>It is used in a job sequencing with a deadline.</li>
+<li>This algorithm is also used to solve the fractional knapsack problem.</li>
+</ul>
+<h3 class="h3">Pseudo code of Greedy Algorithm</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">
+<div class="tools"></div>
+</div>
+<ol start="1" class="dp-xml">
+<li class="alt"><span>Algorithm Greedy (a, n)  </span></li>
+<li><span>{  </span></li>
+<li class="alt"><span>   Solution <span class="attribute">:</span><span> = </span><span class="attribute-value">0</span><span>;  </span></span></li>
+<li><span>  for <span class="attribute">i</span><span> = </span><span class="attribute-value">0</span><span> to n do  </span></span></li>
+<li class="alt"><span>  {  </span></li>
+<li><span>      <span class="attribute">x:</span><span> = </span><span class="attribute-value">select</span><span>(a);  </span></span></li>
+<li class="alt"><span>     if feasible(solution, x)  </span></li>
+<li><span>    {  </span></li>
+<li class="alt"><span>        <span class="attribute">Solution:</span><span> = </span><span class="attribute-value">union</span><span>(solution , x)  </span></span></li>
+<li><span>    }  </span></li>
+<li class="alt"><span>       return solution;  </span></li>
+<li><span>  } }  </span></li>
+</ol></div>
+</div>
+<p>The above is the greedy algorithm. Initially, the solution is assigned with zero value. We pass the array and number of elements in the greedy algorithm. Inside the for loop, we select the element one by one and checks whether the solution is feasible or not. If the solution is feasible, then we perform the union.</p>
+<p><span>Let's understand through an example.</span></p>
+<p>Suppose there is a problem 'P'. I want to travel from A to B shown as below:</p>
+<p><span>P : A → B</span></p>
+<p>The problem is that we have to travel this journey from A to B. There are various solutions to go from A to B. We can go from A to B by <span>walk, car, bike, train, aeroplane</span>, etc. There is a constraint in the journey that we have to travel this journey within 12 hrs. If I go by train or aeroplane then only, I can cover this distance within 12 hrs. There are many solutions to this problem but there are only two solutions that satisfy the constraint.</p>
+<p>If we say that we have to cover the journey at the minimum cost. This means that we have to travel this distance as minimum as possible, so this problem is known as a minimization problem. Till now, we have two feasible solutions, i.e., one by train and another one by air. Since travelling by train will lead to the minimum cost so it is an optimal solution. An optimal solution is also the feasible solution, but providing the best result so that solution is the optimal solution with the minimum cost. There would be only one optimal solution.</p>
+<p>The problem that requires either minimum or maximum result then that problem is known as an optimization problem. Greedy method is one of the strategies used for solving the optimization problems.</p>
+<h3 class="h3">Disadvantages of using Greedy algorithm</h3>
+<p>Greedy algorithm makes decisions based on the information available at each phase without considering the broader problem. So, there might be a possibility that the greedy solution does not give the best solution for every problem.</p>
+<p>It follows the local optimum choice at each stage with a intend of finding the global optimum. Let's understand through an example.</p>
+<p><span>Consider the graph which is given below:</span></p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/greedy-algorithm.png" alt="Greedy Algorithm" /><span></span></p>
+<p>We have to travel from the source to the destination at the minimum cost. Since we have three feasible solutions having cost paths as 10, 20, and 5. 5 is the minimum cost path so it is the optimal solution. This is the local optimum, and in this way, we find the local optimum at each stage in order to calculate the global optimal solution.</p>

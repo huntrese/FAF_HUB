@@ -1,0 +1,66 @@
+<h2>How to Read from Files</h2>
+<p>You can read information from files into your C++ program. This is possible using stream extraction operator (&gt;&gt;). You use the operator in the same way you use it to read user input from the keyboard. However, instead of using the cin object, you use the ifstream/ fstream object.</p>
+<h3>Example 3:</h3>
+<pre>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+int main() {
+	fstream my_file;
+	my_file.open("my_file.txt", ios::in);
+	if (!my_file) {
+		cout &lt;&lt; "No such file";
+	}
+	else {
+		char ch;
+
+		while (1) {
+			my_file &gt;&gt; ch;
+			if (my_file.eof())
+				break;
+
+			cout &lt;&lt; ch;
+		}
+
+	}
+	my_file.close();
+	return 0;
+}
+</pre>
+<p><span>Output:</span></p>
+<p><img decoding="async" width="71" height="20" src="https://www.guru99.com/images/2/100520_1107_CFileHandli6.png" alt="" data-lazy-src="https://www.guru99.com/images/2/100520_1107_CFileHandli6.png" data-ll-status="loaded" class="entered lazyloaded" /></p>
+<p>No such file</p>
+<p>Here is a screenshot of the code:</p>
+<p><img decoding="async" width="422" height="571" src="https://www.guru99.com/images/2/100520_1107_CFileHandli7.png" alt="" data-lazy-src="https://www.guru99.com/images/2/100520_1107_CFileHandli7.png" data-ll-status="loaded" class="entered lazyloaded" /></p>
+<p><span>Code Explanation:</span></p>
+<ol>
+<li>Include the iostream header file in the program to use its functions.</li>
+<li>Include the fstream header file in the program to use its classes.</li>
+<li>Include the std namespace in the program to use its classes without calling it.</li>
+<li>Call the main() function. The program logic should be added within the body of this function.</li>
+<li>Create an instance of the fstream class and give it the name my_file.</li>
+<li>Use the open() function to create a new file named my_file.txt. The file will be opened in the in mode for reading from it.</li>
+<li>Use an if statement to check whether the file does not exist.</li>
+<li>Text to print on the console if the file is not found.</li>
+<li>End of the body of the if statement.</li>
+<li>Use an else statement to state what to do if the file is found.</li>
+<li>Create a char variable named ch.</li>
+<li>Create a while loop for iterating over the file contents.</li>
+<li>Write/store contents of the file in the variable ch.</li>
+<li>Use an if condition and eof() function that is, end of the file, to ensure the compiler keeps on reading from the file if the end is not reached.</li>
+<li>Use a break statement to stop reading from the file once the end is reached.</li>
+<li>Print the contents of variable ch on the console.</li>
+<li>End of the while body.</li>
+<li>End of the body of the else statement.</li>
+<li>Call the close() function to close the file.</li>
+<li>The program must return value upon successful completion.</li>
+<li>End of the body of the main() function.</li>
+</ol>
+<h3>Summary:</h3>
+<ul>
+<li>With file handling, the output of a program can be sent and stored in a file.</li>
+<li>A number of operations can then be applied to the data while in the file.</li>
+<li>A stream is an abstraction that represents a device where input/output operations are performed.</li>
+<li>A stream can be represented as either destination or source of characters of indefinite length.</li>
+<li>The fstream library provides C++ programmers with methods for file handling.</li>
+<li>To use the library, you must include it in your program using the #include preprocessor directive.</li>
+</ul>

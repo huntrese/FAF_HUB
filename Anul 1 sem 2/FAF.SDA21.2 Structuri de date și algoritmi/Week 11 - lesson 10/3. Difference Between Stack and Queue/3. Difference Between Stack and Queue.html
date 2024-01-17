@@ -1,0 +1,60 @@
+<h2>Difference Between Stack and Queue</h2>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<td><strong>Parameter</strong></td>
+<td><strong>Stack Data Structure</strong></td>
+<td><strong>Queue Data Structure</strong></td>
+</tr>
+<tr>
+<td>Basics</td>
+<td>It is a linear data structure. The objects are removed or inserted at the same end.</td>
+<td>It is also a linear data structure. The objects are removed and inserted from two different ends.</td>
+</tr>
+<tr>
+<td>Working Principle</td>
+<td>It follows the Last In, First Out (LIFO) principle. It means that the last inserted element gets deleted at first.</td>
+<td>It follows the First In, First Out (FIFO) principle. It means that the first added element gets removed first from the list.</td>
+</tr>
+<tr>
+<td>Pointers</td>
+<td>It has only one pointer- the <strong>top</strong>. This pointer indicates the address of the topmost element or the last inserted one of the stack.</td>
+<td>It uses two pointers (in a simple queue) for reading and writing data from both the ends- the <strong>front</strong> and the <strong>rear</strong>. The rear one indicates the address of the last inserted element, whereas the front pointer indicates the address of the first inserted element in a queue.</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>Stack uses <strong>push</strong> and <strong>pop</strong> as two of its operations. The pop operation functions to remove the element from the list, while the push operation functions to insert the element in a list.</td>
+<td>Queue uses <strong>enqueue</strong> and <strong>dequeue</strong> as two of its operations. The dequeue operation deletes the elements from the queue, and the enqueue operation inserts the elements in a queue.</td>
+</tr>
+<tr>
+<td>Structure</td>
+<td>Insertion and deletion of elements take place from one end only. It is called the top.</td>
+<td>It uses two ends- front and rear. Insertion uses the rear end, and deletion uses the front end.</td>
+</tr>
+<tr>
+<td>Full Condition Examination</td>
+<td>When top== max-1, it means that the stack is full.</td>
+<td>When rear==max-1, it means that the queue is full.</td>
+</tr>
+<tr>
+<td>Empty Condition Examination</td>
+<td>When top==-1, it indicates that the stack is empty.</td>
+<td>When front = rear+1 or front== -1, it indicates that the queue is empty.</td>
+</tr>
+<tr>
+<td>Variants</td>
+<td>A Stack data structure does not have any types.</td>
+<td>A Queue data structure has three types- circular queue, priority queue, and double-ended queue.</td>
+</tr>
+<tr>
+<td>Visualization</td>
+<td>You can visualize the Stack as a vertical collection.</td>
+<td>You can visualize a Queue as a horizontal collection.</td>
+</tr>
+<tr>
+<td>Implementation</td>
+<td>The implementation is simpler in a Stack.</td>
+<td>The implementation is comparatively more complex in a Queue than a stack.</td>
+</tr>
+</tbody>
+</table>

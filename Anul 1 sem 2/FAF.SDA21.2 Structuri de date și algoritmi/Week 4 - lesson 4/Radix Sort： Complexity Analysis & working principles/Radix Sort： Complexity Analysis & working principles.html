@@ -1,0 +1,14 @@
+<h2>1. Radix Sort Complexity Analysis<span class="ez-toc-section-end"></span></h2>
+<p>The lower bound for the comparison-based sorting algorithm is O(n*log n) like merge sort, quick sort, heap sort.</p>
+<p>So radix sort is efficient than the comparison sorting algorithm until the number of digits (key) is less than log n.</p>
+<div class="VjX64P9k">
+<div class="hit-ads"></div>
+</div>
+<p>Counting sort can’t be used if a range of key-value is large (suppose range is 1 to n<span>2</span>) so radix sort is the best choice to sort in linear time.</p>
+<p>We use <span class="nolink">counting sort </span>to sort elements of every digit, so <span>time complexity is O(nd)</span>.</p>
+<hr class="wp-block-separator" />
+<h2><span class="ez-toc-section" id="2_how_radix_sort_works"></span>2. How Radix Sort works<span class="ez-toc-section-end"></span></h2>
+<ul>
+<li>In radix sort, we first sort the elements based on the last digit (least significant digit).</li>
+<li>Then the result is again sorted by the second digit, continue this process for all digits until we reach the most significant digit.</li>
+</ul>

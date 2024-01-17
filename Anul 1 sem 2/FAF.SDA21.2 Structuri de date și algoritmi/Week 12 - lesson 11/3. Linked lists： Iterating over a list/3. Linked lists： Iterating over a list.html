@@ -1,0 +1,12 @@
+<h1>Linked lists</h1>
+<hr />
+<h3><span style="font-size: 1.75rem;">Iterating over a list</span></h3>
+<p>Let's build a function that prints out all the items of a list. To do this, we need to use a <code class="  language-c">current</code> pointer that will keep track of the node we are currently printing. After printing the value of the node, we set the <code class="  language-c">current</code> pointer to the next node, and print again, until we've reached the end of the list (the next node is NULL).</p>
+<pre class="  language-c"><code class="  language-c"><span class="token keyword">void</span> <span class="token function">print_list</span><span class="token punctuation">(</span>node_t <span class="token operator">*</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    node_t <span class="token operator">*</span> current <span class="token operator">=</span> head<span class="token punctuation">;</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>current <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> current<span class="token operator">-&gt;</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        current <span class="token operator">=</span> current<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>

@@ -1,0 +1,79 @@
+<h5><strong>Pseudocode of Merge Sort algorithm</strong> can be written as follows:</h5>
+<pre class="shiki"><code><span class="line"><span>PROCEDURE</span><span> </span><span>function</span><span> </span><span>mergeSort</span></span>
+<span class="line"><span>   </span><span>FOR</span><span> </span><span>each</span><span> </span><span>element</span><span> </span><span>of</span><span> </span><span>the</span><span> </span><span>master</span><span> </span><span>list</span><span> </span><span>indexed</span><span> </span><span>by</span><span> </span><span>i</span></span>
+<span class="line"><span> </span></span>
+<span class="line"><span>       </span><span>if</span><span> ( </span><span>i</span><span> </span><span>&lt;=</span><span> </span><span>1</span><span> ) </span><span>return</span><span> </span><span>a</span></span>
+<span class="line"><span> </span></span>
+<span class="line"><span>       </span><span>var</span><span> </span><span>left</span><span> </span><span>=</span><span> </span><span>a</span><span>[</span><span>0</span><span>] </span><span>to</span><span> </span><span>a</span><span>[</span><span>i</span><span>/</span><span>2</span><span>]</span></span>
+<span class="line"><span>       </span><span>var</span><span> </span><span>right</span><span> </span><span>=</span><span> </span><span>a</span><span>[</span><span>i</span><span>/</span><span>2</span><span>+</span><span>1</span><span>] </span><span>to</span><span> </span><span>a</span><span>[</span><span>i</span><span>]</span></span>
+<span class="line"><span> </span></span>
+<span class="line"><span>       </span><span>left</span><span> </span><span>=</span><span> </span><span>mergeSort</span><span>( </span><span>left</span><span> )</span></span>
+<span class="line"><span>       </span><span>right</span><span> </span><span>=</span><span> </span><span>mergeSort</span><span>( </span><span>right</span><span> )</span></span>
+<span class="line"><span> </span></span>
+<span class="line"><span>       </span><span>return</span><span> </span><span>merge</span><span>( </span><span>left</span><span>,</span><span>right</span><span> )</span></span>
+<span class="line"><span> </span></span>
+<span class="line"><span>   </span><span>END</span><span> </span><span>FOR</span></span>
+<span class="line"><span>END</span><span> </span><span>PROCEDURE</span></span>
+<span class="line"><span> </span></span>
+<span class="line"><span>PROCEDURE</span><span> </span><span>function</span><span> </span><span>mergeSort</span></span>
+<span class="line"><span>    </span><span>WHILE</span><span> </span><span>length</span><span>(</span><span>left</span><span>) </span><span>&gt;</span><span> </span><span>0</span><span> </span><span>and</span><span> </span><span>length</span><span>(</span><span>right</span><span>) </span><span>&gt;</span><span> </span><span>0</span></span>
+<span class="line"><span>        </span><span>if</span><span> </span><span>first</span><span>(</span><span>left</span><span>) </span><span>â‰¤</span><span> </span><span>first</span><span>(</span><span>right</span><span>)</span></span>
+<span class="line"><span>            </span><span>append</span><span> </span><span>first</span><span>(</span><span>left</span><span>) </span><span>to</span><span> </span><span>result</span></span>
+<span class="line"><span>            </span><span>left</span><span> </span><span>=</span><span> </span><span>rest</span><span>(</span><span>left</span><span>)</span></span>
+<span class="line"><span>        </span><span>else</span></span>
+<span class="line"><span>            </span><span>append</span><span> </span><span>first</span><span>(</span><span>right</span><span>) </span><span>to</span><span> </span><span>result</span></span>
+<span class="line"><span>            </span><span>right</span><span> </span><span>=</span><span> </span><span>rest</span><span>(</span><span>right</span><span>)</span></span>
+<span class="line"><span> </span></span>
+<span class="line"><span>    </span><span>IF</span><span> </span><span>length</span><span>(</span><span>left</span><span>) </span><span>&gt;</span><span> </span><span>0</span></span>
+<span class="line"><span>        </span><span>append</span><span> </span><span>left</span><span> </span><span>to</span><span> </span><span>result</span></span>
+<span class="line"><span>    </span><span>END</span><span> </span><span>IF</span></span>
+<span class="line"><span> </span></span>
+<span class="line"><span>    </span><span>IF</span><span> </span><span>length</span><span>(</span><span>right</span><span>) </span><span>&gt;</span><span> </span><span>0</span></span>
+<span class="line"><span>        </span><span>append</span><span> </span><span>right</span><span> </span><span>to</span><span> </span><span>result</span></span>
+<span class="line"><span>    </span><span>END</span><span> </span><span>IF</span></span>
+<span class="line"><span> </span></span>
+<span class="line"><span>    </span><span>return</span><span> </span><span>result</span></span>
+<span class="line"><span>END</span><span> </span><span>PROCEDURE<br /><br /></span></span></code></pre>
+<h2 id="complexity">Merge Sort Complexity</h2>
+<div class="table-responsive">
+<table border="0">
+<tbody>
+<tr><th><span>Time Complexity</span></th>
+<td> </td>
+</tr>
+<tr>
+<td>Best</td>
+<td>O(n*log n)</td>
+</tr>
+<tr>
+<td>Worst</td>
+<td>O(n*log n)</td>
+</tr>
+<tr>
+<td>Average</td>
+<td>O(n*log n)</td>
+</tr>
+<tr><th><span>Space Complexity</span></th>
+<td>O(n)</td>
+</tr>
+<tr><th><span>Stability</span></th>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3>Time Complexity</h3>
+<p>Best Case Complexity: <var>O(n*log n)</var></p>
+<p>Worst Case Complexity: <var>O(n*log n)</var></p>
+<p>Average Case Complexity: <var>O(n*log n)</var></p>
+<h3>Space Complexity</h3>
+<p>The space complexity of merge sort is <var>O(n)</var>.</p>
+<hr />
+<h2 id="application">Merge Sort Applications</h2>
+<ul>
+<li>Inversion count problem</li>
+<li>External sorting</li>
+<li>E-commerce applications</li>
+</ul>
+<pre class="shiki"><code><span class="line"><span> </span></span></code></pre>

@@ -1,0 +1,20 @@
+<pre>Given a square matrix of order N*N having distinct elements, <br />the task is to sort given matrix in such a way that its rows, <br />columns and both diagonals (diagonal and anti-diagonal) are in increasing order.</pre>
+<pre><strong>Examples: </strong></pre>
+<pre>Input : arr[3][3] = {1, 4, 2,
+                     3, 5, 6,
+                     9, 7, 8}
+Output :{1, 2, 3,
+         4, 5, 6,
+         7, 8, 9}
+
+Input : arr[2][2] = {0, 4,
+                     5, 2}                    
+Output :{0, 2,
+         4, 5}</pre>
+<pre id="practiceLinkDiv" class="practiceBannerFromcontent"><span style="font-size: 1rem;">Sorting any matrix in a way that its rows, columns and main diagonal are in increasing order is easy. <br />If we consider matrix elements in sequence according to row-major order and sort the sequence, <br />we get the desired result.</span></pre>
+<pre>Example: arr[2][2] : {1, 2
+                      3, 4}
+Rows in increasing order:  {1,2} and {3,4}
+Columns in increasing order:  {1,3} and {2,4}
+Diagonal in increasing order:  {1,4}
+Anti-diagonal in increasing order:  {2,3}</pre>

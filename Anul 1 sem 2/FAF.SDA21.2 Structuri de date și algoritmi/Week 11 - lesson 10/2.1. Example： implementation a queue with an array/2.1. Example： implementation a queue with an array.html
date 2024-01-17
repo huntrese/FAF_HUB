@@ -1,0 +1,165 @@
+<pre class="pre-scrollable prettyprint prettyprinted"><span class="com"></span><span class="com">// Example of implementation a queue with an array.</span><span class="pln">
+</span><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;stdio.h&gt;</span><span class="pln">
+
+</span><span class="com">#define</span><span class="pln"> EMPTY </span><span class="pun">-</span><span class="lit">1</span><span class="pln">
+</span><span class="com">#define</span><span class="pln"> INIT_SIZE </span><span class="lit">10</span><span class="pln">
+
+</span><span class="com">// Stores our queue.</span><span class="pln">
+</span><span class="kwd">struct</span><span class="pln"> queue </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pun">*</span><span class="pln"> elements</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> front</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> numElements</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> queueSize</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+</span><span class="kwd">void</span><span class="pln"> init</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> qPtr</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> enqueue</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> qPtr</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> val</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> dequeue</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> qPtr</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> empty</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> qPtr</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> front</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> qPtr</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> main</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+     </span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="com">// Allocate space for our queue and initialize it.</span><span class="pln">
+    </span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> </span><span class="typ">MyQueuePtr</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*)</span><span class="pln">malloc</span><span class="pun">(</span><span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">));</span><span class="pln">
+    init</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">);</span><span class="pln">
+
+    </span><span class="com">// Enqueue some items.</span><span class="pln">
+    enqueue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span><span class="pln">
+    enqueue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">);</span><span class="pln">
+    enqueue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">);</span><span class="pln">
+
+    </span><span class="com">// Try one dequeue.</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"Dequeue %d\n"</span><span class="pun">,</span><span class="pln"> dequeue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">));</span><span class="pln">
+
+    </span><span class="com">// Enqueue one more item, then try several dequeues and one front.</span><span class="pln">
+    enqueue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">);</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"Dequeue %d\n"</span><span class="pun">,</span><span class="pln"> dequeue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">));</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"At Front of Queue Now: %d\n"</span><span class="pun">,</span><span class="pln"> front</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">));</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"Dequeue %d\n"</span><span class="pun">,</span><span class="pln"> dequeue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">));</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"Dequeue %d\n"</span><span class="pun">,</span><span class="pln"> dequeue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">));</span><span class="pln">
+
+    </span><span class="com">// See if we can detect an empty queue.</span><span class="pln">
+    printf</span><span class="pun">(</span><span class="str">"Is empty: %d\n"</span><span class="pun">,</span><span class="pln"> empty</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">));</span><span class="pln">
+
+    </span><span class="com">// Try enqueuing and dequeuing again to make sure that our previous</span><span class="pln">
+    </span><span class="com">// operations didn't "corrupt" the queue.</span><span class="pln">
+    enqueue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">);</span><span class="pln">
+    enqueue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">,</span><span class="pln"> </span><span class="lit">9</span><span class="pun">);</span><span class="pln">
+
+    </span><span class="com">// Try lots of enqueues to test the dynamic capability of the queue.</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">=</span><span class="lit">30</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="lit">60</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln">
+        enqueue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">);</span><span class="pln">
+
+    </span><span class="com">// Dequeue everything.</span><span class="pln">
+    </span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">empty</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">))</span><span class="pln">
+        printf</span><span class="pun">(</span><span class="str">"Dequeue %d\n"</span><span class="pun">,</span><span class="pln"> dequeue</span><span class="pun">(</span><span class="typ">MyQueuePtr</span><span class="pun">));</span><span class="pln">
+
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Pre-condition: qPtr points to a valid struct queue.</span><span class="pln">
+</span><span class="com">// Post-condition: The struct that qPtr points to will be set up to represent an</span><span class="pln">
+</span><span class="com">//                 empty queue.</span><span class="pln">
+</span><span class="kwd">void</span><span class="pln"> init</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> qPtr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+     </span><span class="com">// The front index is 0, as is the number of elements.</span><span class="pln">
+     qPtr</span><span class="pun">-&gt;</span><span class="pln">elements </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pun">*)</span><span class="pln">malloc</span><span class="pun">(</span><span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">int</span><span class="pun">)*</span><span class="pln">INIT_SIZE</span><span class="pun">);</span><span class="pln">
+     qPtr</span><span class="pun">-&gt;</span><span class="pln">front </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+     qPtr</span><span class="pun">-&gt;</span><span class="pln">numElements </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+     qPtr</span><span class="pun">-&gt;</span><span class="pln">queueSize </span><span class="pun">=</span><span class="pln"> INIT_SIZE</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Pre-condition: qPtr points to a valid struct queue and val is the value to</span><span class="pln">
+</span><span class="com">//                enqueue into the queue pointed to by qPtr.</span><span class="pln">
+</span><span class="com">// Post-condition: If the operation is successful, 1 will be returned, otherwise</span><span class="pln">
+</span><span class="com">//                 no change will be made to the queue and 0 will be returned.</span><span class="pln">
+
+</span><span class="com">// Note: Right now, I don't know how to detect that the realloc failed, so 0</span><span class="pln">
+</span><span class="com">//       does not get returned.</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> enqueue</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> qPtr</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> val</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="com">// Regular case where our queue isn't full.</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">numElements </span><span class="pun">!=</span><span class="pln"> qPtr</span><span class="pun">-&gt;</span><span class="pln">queueSize</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+        </span><span class="com">// Enqueue the current element. Note the use of mod for the wraparound</span><span class="pln">
+        </span><span class="com">// case. Edit the number of elements.</span><span class="pln">
+        qPtr</span><span class="pun">-&gt;</span><span class="pln">elements</span><span class="pun">[(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">front</span><span class="pun">+</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">numElements</span><span class="pun">)%</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">queueSize</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> val</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">numElements</span><span class="pun">)++;</span><span class="pln">
+
+        </span><span class="com">// Signifies a successful operation.</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="com">// Case where the queue is full, we must find more space before we enqueue.</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+         </span><span class="com">// Allocate more space!</span><span class="pln">
+         qPtr</span><span class="pun">-&gt;</span><span class="pln">elements </span><span class="pun">=</span><span class="pln"> realloc</span><span class="pun">(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">elements</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">queueSize</span><span class="pun">)*</span><span class="kwd">sizeof</span><span class="pun">(</span><span class="kwd">int</span><span class="pun">)*</span><span class="lit">2</span><span class="pun">);</span><span class="pln">
+
+         </span><span class="com">// Copy all of the items that are stored "before" front and copy them</span><span class="pln">
+         </span><span class="com">// into their new correct locations.</span><span class="pln">
+         </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;=</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">front</span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln">
+             qPtr</span><span class="pun">-&gt;</span><span class="pln">elements</span><span class="pun">[</span><span class="pln">i</span><span class="pun">+</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">queueSize</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> qPtr</span><span class="pun">-&gt;</span><span class="pln">elements</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span><span class="pln">
+
+         </span><span class="com">// Enqueue the new item, now that there is space. We are guaranteed that</span><span class="pln">
+         </span><span class="com">// no wraparound is necessary here.</span><span class="pln">
+         qPtr</span><span class="pun">-&gt;</span><span class="pln">elements</span><span class="pun">[</span><span class="pln">i</span><span class="pun">+</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">queueSize</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> val</span><span class="pun">;</span><span class="pln">
+
+         </span><span class="com">// More bookkeeping: The size of the queue as doubled and the number of</span><span class="pln">
+         </span><span class="com">// elements has increased by one.</span><span class="pln">
+         </span><span class="pun">(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">queueSize</span><span class="pun">)</span><span class="pln"> </span><span class="pun">*=</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln">
+         </span><span class="pun">(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">numElements</span><span class="pun">)++;</span><span class="pln">
+
+         </span><span class="kwd">return</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Pre-condition: qPtr points to a valid struct queue.</span><span class="pln">
+</span><span class="com">// Post-condition: If the queue pointed to by qPtr is non-empty, then the value</span><span class="pln">
+</span><span class="com">//                 at the front of the queue is deleted from the queue and</span><span class="pln">
+</span><span class="com">//                 returned. Otherwise, -1 is returned to signify that the queue</span><span class="pln">
+</span><span class="com">//                 was already empty when the dequeue was attempted.</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> dequeue</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> qPtr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="kwd">int</span><span class="pln"> retval</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="com">// Empty case.</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">numElements </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> EMPTY</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="com">// Store the value that should be returned.</span><span class="pln">
+    retval </span><span class="pun">=</span><span class="pln"> qPtr</span><span class="pun">-&gt;</span><span class="pln">elements</span><span class="pun">[</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">front</span><span class="pun">];</span><span class="pln">
+
+    </span><span class="com">// Adjust the index to the front of the queue accordingly.</span><span class="pln">
+    qPtr</span><span class="pun">-&gt;</span><span class="pln">front </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">front </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)%</span><span class="pln"> qPtr</span><span class="pun">-&gt;</span><span class="pln">queueSize</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="com">// We have one fewer element in the queue.</span><span class="pln">
+    </span><span class="pun">(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">numElements</span><span class="pun">)--;</span><span class="pln">
+
+    </span><span class="com">// Return the dequeued element.</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> retval</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Pre-condition: qPtr points to a valid struct queue.</span><span class="pln">
+</span><span class="com">// Post-condition: returns true iff the queue pointed to by pPtr is empty.</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> empty</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> qPtr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> qPtr</span><span class="pun">-&gt;</span><span class="pln">numElements </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Pre-condition: qPtr points to a valid struct queue.</span><span class="pln">
+</span><span class="com">// Post-condition: if the queue pointed to by qPtr is non-empty, the value</span><span class="pln">
+</span><span class="com">//                 stored at the front of the queue is returned. Otherwise,</span><span class="pln">
+</span><span class="com">//                 -1 is returned to signify that this queue is empty.</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> front</span><span class="pun">(</span><span class="kwd">struct</span><span class="pln"> queue</span><span class="pun">*</span><span class="pln"> qPtr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">numElements </span><span class="pun">!=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> qPtr</span><span class="pun">-&gt;</span><span class="pln">elements</span><span class="pun">[</span><span class="pln">qPtr</span><span class="pun">-&gt;</span><span class="pln">front</span><span class="pun">];</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> EMPTY</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></pre>

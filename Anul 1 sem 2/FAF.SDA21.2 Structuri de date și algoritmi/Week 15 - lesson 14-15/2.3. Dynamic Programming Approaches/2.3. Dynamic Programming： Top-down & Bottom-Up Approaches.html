@@ -1,0 +1,114 @@
+<h1 class="h1"><span style="font-size: 1.75rem;">Top-down approach</span></h1>
+<p>The top-down approach follows the memorization technique, while bottom-up approach follows the tabulation method. Here memorization is equal to the sum of recursion and caching. Recursion means calling the function itself, while caching means storing the intermediate results.</p>
+<p><span>Advantages</span></p>
+<ul class="points">
+<li>It is very easy to understand and implement.</li>
+<li>It solves the subproblems only when it is required.</li>
+<li>It is easy to debug.</li>
+</ul>
+<p><span>Disadvantages</span></p>
+<p>It uses the recursion technique that occupies more memory in the call stack. Sometimes when the recursion is too deep, the stack overflow condition will occur.</p>
+<p>It occupies more memory that degrades the overall performance.</p>
+<p><span>Let's understand dynamic programming through an example.</span></p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">
+<div class="tools"></div>
+</div>
+<ol start="1" class="dp-cpp">
+<li class="alt"><span><span class="datatypes">int</span><span> fib(</span><span class="datatypes">int</span><span> n)  </span></span></li>
+<li><span>{  </span></li>
+<li class="alt"><span>   <span class="keyword">if</span><span>(n&lt;0)  </span></span></li>
+<li><span>   error;  </span></li>
+<li class="alt"><span> <span class="keyword">if</span><span>(n==0)  </span></span></li>
+<li><span> <span class="keyword">return</span><span> 0;  </span></span></li>
+<li class="alt"><span> <span class="keyword">if</span><span>(n==1)  </span></span></li>
+<li><span><span class="keyword">return</span><span> 1;  </span></span></li>
+<li class="alt"><span>sum = fib(n-1) + fib(n-2);  </span></li>
+<li><span>}  </span></li>
+</ol></div>
+</div>
+<p>In the above code, we have used the recursive approach to find out the Fibonacci series. When the value of 'n' increases, the function calls will also increase, and computations will also increase. In this case, the time complexity increases exponentially, and it becomes 2<sup>n</sup>.</p>
+<p>One solution to this problem is to use the dynamic programming approach. Rather than generating the recursive tree again and again, we can reuse the previously calculated value. If we use the dynamic programming approach, then the time complexity would be O(n).</p>
+<p>When we apply the dynamic programming approach in the implementation of the Fibonacci series, then the code would look like:</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">
+<div class="tools"></div>
+</div>
+<ol start="1" class="dp-cpp">
+<li class="alt"><span><span class="keyword">static</span><span> </span><span class="datatypes">int</span><span> count = 0;   </span></span></li>
+<li><span><span class="datatypes">int</span><span> fib(</span><span class="datatypes">int</span><span> n)  </span></span></li>
+<li class="alt"><span>{  </span></li>
+<li><span><span class="keyword">if</span><span>(memo[n]!= NULL)  </span></span></li>
+<li class="alt"><span><span class="keyword">return</span><span> memo[n];  </span></span></li>
+<li><span>count++;  </span></li>
+<li class="alt"><span>   <span class="keyword">if</span><span>(n&lt;0)  </span></span></li>
+<li><span>   error;  </span></li>
+<li class="alt"><span> <span class="keyword">if</span><span>(n==0)  </span></span></li>
+<li><span> <span class="keyword">return</span><span> 0;  </span></span></li>
+<li class="alt"><span> <span class="keyword">if</span><span>(n==1)  </span></span></li>
+<li><span><span class="keyword">return</span><span> 1;  </span></span></li>
+<li class="alt"><span>sum = fib(n-1) + fib(n-2);  </span></li>
+<li><span>memo[n] = sum;  </span></li>
+<li class="alt"><span>}  </span></li>
+</ol></div>
+</div>
+<p>In the above code, we have used the memorization technique in which we store the results in an array to reuse the values. This is also known as a top-down approach in which we move from the top and break the problem into sub-problems.</p>
+<h3 class="h3">Bottom-Up approach</h3>
+<p>The bottom-up approach is also one of the techniques which can be used to implement the dynamic programming. It uses the tabulation technique to implement the dynamic programming approach. It solves the same kind of problems but it removes the recursion. If we remove the recursion, there is no stack overflow issue and no overhead of the recursive functions. In this tabulation technique, we solve the problems and store the results in a matrix.</p>
+<p>There are two ways of applying dynamic programming:</p>
+<ul class="points">
+<li><span>Top-Down</span></li>
+<li><span>Bottom-Up</span></li>
+</ul>
+<p>The bottom-up is the approach used to avoid the recursion, thus saving the memory space. The bottom-up is an algorithm that starts from the beginning, whereas the recursive algorithm starts from the end and works backward. In the bottom-up approach, we start from the base case to find the answer for the end. As we know, the base cases in the Fibonacci series are 0 and 1. Since the bottom approach starts from the base cases, so we will start from 0 and 1.</p>
+<p><span>Key points</span></p>
+<ul class="points">
+<li>We solve all the smaller sub-problems that will be needed to solve the larger sub-problems then move to the larger problems using smaller sub-problems.</li>
+<li>We use for loop to iterate over the sub-problems.</li>
+<li>The bottom-up approach is also known as the tabulation or table filling method.</li>
+</ul>
+<p><span>Let's understand through an example.</span></p>
+<p>Suppose we have an array that has 0 and 1 values at a[0] and a[1] positions, respectively shown as below:</p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/dynamic-programming2.png" alt="Dynamic Programming" /><span></span></p>
+<p>Since the bottom-up approach starts from the lower values, so the values at a[0] and a[1] are added to find the value of a[2] shown as below:</p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/dynamic-programming3.png" alt="Dynamic Programming" /><span></span></p>
+<p>The value of a[3] will be calculated by adding a[1] and a[2], and it becomes 2 shown as below:</p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/dynamic-programming4.png" alt="Dynamic Programming" /><span></span></p>
+<p>The value of a[4] will be calculated by adding a[2] and a[3], and it becomes 3 shown as below:</p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/dynamic-programming5.png" alt="Dynamic Programming" /><span></span></p>
+<p>The value of a[5] will be calculated by adding the values of a[4] and a[3], and it becomes 5 shown as below:</p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/dynamic-programming6.png" alt="Dynamic Programming" /><span></span></p>
+<p>The code for implementing the Fibonacci series using the bottom-up approach is given below:</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">
+<div class="tools"></div>
+</div>
+<ol start="1" class="dp-cpp">
+<li class="alt"><span><span class="datatypes">int</span><span> fib(</span><span class="datatypes">int</span><span> n)  </span></span></li>
+<li><span>{  </span></li>
+<li class="alt"><span>    <span class="datatypes">int</span><span> A[];  </span></span></li>
+<li><span>    A[0] = 0, A[1] = 1;  </span></li>
+<li class="alt"><span>    <span class="keyword">for</span><span>( i=2; i&lt;=n; i++)  </span></span></li>
+<li><span>    {  </span></li>
+<li class="alt"><span>         A[i] = A[i-1] + A[i-2]  </span></li>
+<li><span>    }  </span></li>
+<li class="alt"><span>    <span class="keyword">return</span><span> A[n];  </span></span></li>
+<li><span>}  </span></li>
+</ol></div>
+</div>
+<p>In the above code, base cases are 0 and 1 and then we have used for loop to find other values of Fibonacci series.</p>
+<p><span>Let's understand through the diagrammatic representation.</span></p>
+<p>Initially, the first two values, i.e., 0 and 1 can be represented as:</p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/dynamic-programming7.png" alt="Dynamic Programming" /><span></span></p>
+<p>When i=2 then the values 0 and 1 are added shown as below:</p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/dynamic-programming8.png" alt="Dynamic Programming" /><span></span></p>
+<p>When i=3 then the values 1and 1 are added shown as below:</p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/dynamic-programming9.png" alt="Dynamic Programming" /><span></span></p>
+<p>When i=4 then the values 2 and 1 are added shown as below:</p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/dynamic-programming10.png" alt="Dynamic Programming" /><span></span></p>
+<p>When i=5, then the values 3 and 2 are added shown as below:</p>
+<p><img src="https://static.javatpoint.com/tutorial/daa/images/dynamic-programming11.png" alt="Dynamic Programming" /><span></span></p>
+<p>In the above case, we are starting from the bottom and reaching to the top.</p>

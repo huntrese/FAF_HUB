@@ -1,0 +1,241 @@
+<div class="region region-featured-top">
+<div class="region-inner">
+<div id="block-blognationalheader" class="block block-bix-blogs block-bix-blogs-header-national">
+<div class="block-content with-hero-image with-byline-background">
+<div class="background">
+<div class="header-right">
+<h1 class="title">Sorting Algorithms: Slowest to Fastest</h1>
+<div class="subtitle">Reviews of all sorting algorithms and their performance analysis ranked from slowest to fastest.</div>
+<div class="subtitle"><span style="font-size: 1rem;">You’d have to scan every page, which would take a huge amount of effort and time. Enter sorting algorithms. These </span><a href="https://builtin.com/learn/tech-dictionary/algorithm" target="_blank" style="background-color: #ffffff; font-size: 1rem;">algorithms</a><span style="font-size: 1rem;"> are designed to scan data and sort items quickly, which tremendously helps us search for them. </span></div>
+<div class="subtitle"></div>
+<div class="subtitle"><span style="font-size: 1rem;"></span><strong><span style="font-size: xx-large;">SORTING ALGORITHMS RANKED FROM SLOWEST TO FASTEST</span></strong></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p></p>
+<p><main id="page-main-content" role="main">
+<div class="layout-content">
+<div class="region region-content">
+<div class="l-three-columns container">
+<div class="l-main-container clearfix display-flex">
+<div class="l-content">
+<div class="row row-region-middle">
+<div class="row-inside">
+<div class="block-region-middle">
+<div class="block block-ctools block-entity-viewnode">
+<article class="blog-national">
+<div class="node--content">
+<div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
+<div class="snippet-box snippet-box-ordered">
+<div class="description"><ol>
+<li>Bubble sort</li>
+<li>Revised bubble sort</li>
+<li>Selection sort</li>
+<li>Insertion sort</li>
+<li>Quick sort</li>
+<li>Merge sort</li>
+</ol></div>
+</div>
+<p><span>There are various ways in which we can sort items. Let’s examine each of them along with their </span><a href="https://builtin.com/software-engineering-perspectives/time-complexity" target="_blank"><span>time and space complexities</span></a><span>.</span></p>
+<p> </p>
+<h2><span>Bubble Sort</span></h2>
+<p><span>This is the simplest sorting algorithm. We’ll compare each adjacent pair and check if the elements are in order. If they aren’t, we swap both elements. We keep doing this until all elements are sorted.</span></p>
+<pre><code class=" hljs cs"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; n; i++){
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j &lt; n - <span class="hljs-number">1</span>; j++){
+        <span class="hljs-keyword">if</span>(arr[j] &gt; arr[j+<span class="hljs-number">1</span>]){
+            <span class="hljs-keyword">int</span> temp = arr[j];
+            arr[j] = arr[j+<span class="hljs-number">1</span>];
+            arr[j+<span class="hljs-number">1</span>] = temp;
+       }
+    }
+}</code></pre>
+<p> </p>
+<h3><span>PERFORMANCE ANALYSIS</span></h3>
+<h4><strong>Time Complexity</strong></h4>
+<ol>
+<li><span><span><span><strong><span><span>Worst case:</span></span></strong><span><span><span> O(n²). Since we </span></span></span></span></span></span><a href="https://builtin.com/software-engineering-perspectives/control-flow" target="_blank"><span>loop</span></a><span> through </span><span><span><span><span><em>n</em></span></span></span></span><span> elements n times, </span><span><span><span><span><em>n</em></span></span></span></span><span> being the length of the </span><a href="https://builtin.com/data-science/how-to-create-list-array-python" target="_blank"><span>array</span></a><span>, the time complexity of </span><a href="https://builtin.com/data-science/data-frame-sorting-pandas" target="_blank"><span>bubble sort </span></a><span>becomes O(n²).</span></li>
+<li><span><span><span><strong><span><span>Best case:</span></span></strong><span><span><span> O(n²). Even if the array is sorted, the algorithm checks each adjacent pair and hence the best-case time complexity will be the same as the worst-case.</span></span></span></span></span></span></li>
+</ol>
+<h4><strong>Space Complexity: </strong><span>O(1)</span></h4>
+<p><span>Since we aren’t using any extra </span><a href="https://builtin.com/learn/tech-dictionary/data-structures" target="_blank"><span>data structures</span></a><span> apart from the input array, the space complexity will be O(1).</span></p>
+<p class="bix-embed-read-more"><span><span>TRY THIS:</span><a href="https://builtin.com/software-engineering-perspectives/jump-game-leetcode" target="_blank">Tackling Jump Game Problems on LeetCode </a></span></p>
+<p> </p>
+<h2><span>Revised Bubble Sort</span></h2>
+<p><span>In the above sorting algorithm, we find that even if our array is already sorted, the time complexity will be the same, i.e. O(n²).</span></p>
+<p><span>We’ll come up with a revised algorithm to overcome this. To identify if the array has been sorted, we’ll create a flag that will check if a swap has occurred between any adjacent pairs. If there is no swap while traversing the entire array, we know that the array is completely sorted and we can break out of the loop. This considerably reduces the time complexity of the algorithm.</span></p>
+<pre><code class=" hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; n; i++){
+    <span class="hljs-keyword">boolean</span> isSwapped = <span class="hljs-keyword">false</span>;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j &lt; n - <span class="hljs-number">1</span>; j++){
+       <span class="hljs-keyword">if</span>(arr[j] &gt; arr[j+<span class="hljs-number">1</span>]){
+            <span class="hljs-keyword">int</span> temp = arr[j];
+            arr[j] = arr[j+<span class="hljs-number">1</span>];
+            arr[j+<span class="hljs-number">1</span>] = temp;
+            isSwapped = <span class="hljs-keyword">true</span>;
+        }
+    <span class="hljs-keyword">if</span>(!isSwapped){
+        <span class="hljs-keyword">break</span>;  
+     }
+   }
+}</code></pre>
+<p> </p>
+<h3><span>PERFORMANCE ANALYSIS</span></h3>
+<h4><strong>Time Complexity</strong></h4>
+<ol>
+<li><span><span><span><strong><span><span>Worst case:</span></span></strong><span><span><span> O(n²). Similar to bubble sort.</span></span></span></span></span></span></li>
+<li><span><span><span><strong><span><span>Best case:</span></span></strong><span><span><span> O(n). In this algorithm, we break our loop if our array is already sorted. So, the best-case time complexity will become O(n).</span></span></span></span></span></span></li>
+</ol>
+<h4><span><span><span><span><span><strong>Space Complexity:</strong> <span>O(1).</span></span></span></span></span></span></h4>
+<p> </p>
+<h2><span>Selection Sort</span></h2>
+<p><span>In this sorting algorithm, we assume that the first element is the minimum element. Then we check to see if an element lower than the assumed minimum is present in the rest of the array. If there is, we swap the assumed minimum and the actual minimum. Otherwise, we move on to the next element.</span></p>
+<pre><code class=" hljs perl"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;arr.<span class="hljs-keyword">length</span>; i++) {
+   <span class="hljs-keyword">int</span> minIndex = i;  
+   <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=i+<span class="hljs-number">1</span>;j&lt;arr.<span class="hljs-keyword">length</span>; j++) {
+      <span class="hljs-keyword">if</span>(arr[j]&lt;arr[minIndex]) {
+        minIndex = j;
+      }
+   }
+   <span class="hljs-keyword">int</span> temp = arr[i];
+   arr[i] = arr[minIndex];
+   arr[minIndex] = temp;
+}</code></pre>
+<p> </p>
+<h3><span>PERFORMANCE ANALYSIS</span></h3>
+<h4><strong>Time Complexity</strong></h4>
+<ol>
+<li><span><span><span><strong><span><span>Worst case:</span></span></strong><span><span><span> O(n²). Since we traverse through the remaining array to find the minimum for each element, the time complexity will become O(n²).</span></span></span></span></span></span></li>
+<li><span><span><span><strong><span><span>Best case:</span></span></strong><span><span><span> O(n²). Even if the array has already been sorted, our algorithm looks for the minimum in the rest of the array. As a result, the best-case time complexity is the same as the worst-case.</span></span></span></span></span></span></li>
+</ol>
+<h4><span><span><span><span><span><strong>Space Complexity:</strong> <span>O(1)</span></span></span></span></span></span></h4>
+<p><span>Similar to the previous algorithms, we aren’t making use of any extra </span><a href="https://builtin.com/software-engineering-perspectives/javascript-data-structures" target="_blank"><span>data structure</span></a><span> apart from the input array so, the space complexity will be O(1).</span></p>
+<p> </p>
+<h2><span>Insertion Sort</span></h2>
+<p><span>In </span><a href="http://www.java67.com/2014/09/insertion-sort-in-java-with-example.html" target="_blank"><span>this sorting algorithm</span></a><span>, we check to see if the order is correct for each element until we reach the current element. Since the first element is in order, we start from the second element and check if the order is maintained. If not, then we swap them. So, on any given element, we check if the current element is greater than the previous element. If it’s not, we keep swapping elements until our current element is greater than the previous element.</span></p>
+<pre><code class=" hljs cs"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt; n; i++) {
+    <span class="hljs-keyword">int</span> j = i;
+    <span class="hljs-keyword">while</span>(j &gt; <span class="hljs-number">0</span> &amp;&amp; arr[j] &lt; arr[j-<span class="hljs-number">1</span>]) {
+        <span class="hljs-keyword">int</span> temp = arr[j];
+        arr[j] = arr[j-<span class="hljs-number">1</span>];
+        arr[j-<span class="hljs-number">1</span>] = temp;
+        j--;
+    }
+}</code></pre>
+<p> </p>
+<h3><span>PERFORMANCE ANALYSIS</span></h3>
+<h4><strong>Time Complexity</strong></h4>
+<ol>
+<li><span><span><span><strong><span><span>Worst case:</span></span></strong><span><span><span> O(n²). In a worst case situation, our array is sorted in descending order. So, for each element, we have to keep traversing and swapping elements to the left.</span></span></span></span></span></span></li>
+<li><span><span><span><strong><span><span>Best case:</span></span></strong><span><span><span> O(n). In the best case, our array is already sorted. So for each element, we compare our current element to the element at the left only once. Since the order is correct, we don’t swap and move on to the next element. Hence the time complexity will be O(n).</span></span></span></span></span></span></li>
+</ol>
+<h4><span><span><span><span><span><strong>Space Complexity:</strong> <span>O(1)</span></span></span></span></span></span></h4>
+<p><span>Since we are not making use of any extra data structure apart from the input array, the space complexity will be O(1).</span></p>
+<p> </p>
+<h2><span>Quick Sort</span></h2>
+<p><span><span><span><span><span><span>Quick sort is also known as a “partition sort.” This sorting algorithm is faster than the previous algorithms because this algorithm uses the concept of divide and conquer</span></span><em><span>.</span></em></span></span></span></span></p>
+<p><span>First, we decide on a pivot element. We then find the correct index for this pivot position and divide the array into two subarrays. One subarray will contain elements that are lesser than our pivot, and the other subarray will contain elements that are greater than our pivot. We then recursively call these two sub-arrays, and the process goes on until we can’t further divide the array.</span></p>
+<pre><code class=" hljs cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">quicksort</span>(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> low, <span class="hljs-keyword">int</span> high) {
+    <span class="hljs-keyword">if</span>(low &gt;= high) <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">int</span> pivotPosition = partition(arr, low, high);
+    quicksort(arr,low, pivotPosition-<span class="hljs-number">1</span>);
+    quicksort(arr, pivotPosition+<span class="hljs-number">1</span>, high);
+}</code></pre>
+<p><span>But how do we divide the sub-array?</span></p>
+<p><span>We assume the last element of our array to be our pivot. We then traverse the entire array using the two-pointer technique. The elements encountered by the left pointer should be lower than the pivot and elements encountered by the right pointer should be greater than pivot. If not, we swap the elements at the left and right pointers so that for a particular position in the array, the elements to the left are lower while higher at the right. We then insert our pivot at this position.</span></p>
+<pre><code class=" hljs cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">partition</span>(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> low, <span class="hljs-keyword">int</span> high) {
+    <span class="hljs-keyword">int</span> pivot = arr[high];
+    <span class="hljs-keyword">int</span> left = low, right = high-<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">while</span>(left &lt; right) {
+       <span class="hljs-keyword">while</span>(arr[left]&lt;pivot) {
+            left++;
+       }
+       <span class="hljs-keyword">while</span>(arr[right]&gt;pivot) {
+            right--; 
+       }
+       <span class="hljs-keyword">if</span>(left &gt;= right) {
+            <span class="hljs-keyword">break</span>;
+       }
+       <span class="hljs-keyword">int</span> temp = arr[left];
+       arr[left] = arr[right];
+       arr[right] = temp;
+    }
+    <span class="hljs-keyword">int</span> temp = arr[left];
+    arr[left] = arr[high];
+    arr[high] = temp;
+    <span class="hljs-keyword">return</span> left;
+}</code></pre>
+<p> </p>
+<h3><span>PERFORMANCE ANALYSIS</span></h3>
+<h4><strong>Time Complexity</strong></h4>
+<ol>
+<li><span><span><span><strong><span><span>Worst-case:</span></span></strong><span><span><span> O(n²). When the array is sorted in descending order or all the elements are the same in the array, the time complexity jumps to O(n²), since the sub-arrays are highly unbalanced.</span></span></span></span></span></span></li>
+<li><span><span><span><strong>Best-case:</strong></span></span></span><span> </span><a href="https://builtin.com/software-engineering-perspectives/nlogn" target="_blank"><span>O(nlogn)</span></a><span>. First, we’ll divide the array into two sub-arrays recursively, which will cost a time complexity of O(logn). For each function call, we are calling the partition function, which costs O(n) time complexity. Hence the total time complexity is O(nlogn).</span></li>
+</ol>
+<h4><span><span><span><span><span><strong>Space Complexity:</strong> <span>O(n)</span></span></span></span></span></span></h4>
+<p><span>Since we are recursively calling the </span><code>quicksort</code><span><span><span><span><span><span> function, an internal stack is used to store these function calls. There will be, at most, </span></span><em><span>n</span></em><span><span> calls in the stack, and hence the space complexity will be O(n).</span></span></span></span></span></span></p>
+<p> </p>
+<h2><span>Merge Sort</span></h2>
+<p><span><span><span><span><span><span>Like quick sort, merge sort also uses the divide and conquer technique</span></span><em><span>. </span></em><span><span>Except in merge sort, most of the work is done during the merging of the sub-arrays. In quick sort, the majority of work is done during the partitioning/dividing of the array. This is why quick sort is also known as a partition sort.</span></span></span></span></span></span></p>
+<p><span>The below function will recursively break the array into two sub-arrays until each sub-array has only one element.</span></p>
+<pre><code class=" hljs cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mergeSort</span>(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r) {
+    <span class="hljs-keyword">if</span> (l &lt; r) {
+        <span class="hljs-keyword">int</span> m = l + (r-l)/<span class="hljs-number">2</span>;
+        sort(arr, l, m);
+        sort(arr , m+<span class="hljs-number">1</span>, r);
+        merge(arr, l, m, r);
+    }
+}</code></pre>
+<p><span>After that, we store these sub-arrays in two new arrays. Now, we can start merging them based on their order, and store them into our input array. After all these subarrays are merged, our input array will be sorted.</span></p>
+<pre><code class=" hljs cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">merge</span>(<span class="hljs-keyword">int</span> arr[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> m, <span class="hljs-keyword">int</span> r) {
+    <span class="hljs-keyword">int</span> n1 = m-l+<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> n2 = r-m;
+    <span class="hljs-keyword">int</span>[] L = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n1];
+    <span class="hljs-keyword">int</span>[] R = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n2];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; n1; i++) {
+        L[i] = arr[l+i];
+    }
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; n2; i++) {
+        R[i] = arr[m+<span class="hljs-number">1</span>+i];
+    }
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>, k =l;
+    <span class="hljs-keyword">while</span>(i &lt; n1 &amp;&amp; j &lt; n2) {
+        <span class="hljs-keyword">if</span>(L[i] &lt;= R[j]) {
+            arr[k++] = L[i++];
+        }
+        <span class="hljs-keyword">else</span> {
+            arr[k++] = R[j++];
+        }
+    }
+    <span class="hljs-keyword">while</span>(i &lt; n1) {
+        arr[k++] = L[i++];
+    }
+    <span class="hljs-keyword">while</span>(j &lt; n2) {
+        arr[k++] = R[j++];
+    }
+}</code></pre>
+<p> </p>
+<h3><span>PERFORMANCE ANALYSIS</span></h3>
+<h4><strong>Time Complexity</strong></h4>
+<ol>
+<li><span><span><span><strong><span><span>Worst case:</span></span></strong><span><span><span> O(nlogn). The worst-case time complexity is the same as the best case.</span></span></span></span></span></span></li>
+<li><span><span><span><strong><span><span>Best case:</span></span></strong><span><span><span> O(nlogn). We are dividing the array into two sub-arrays recursively, which will cost a time complexity of O(logn). For each function call, we are calling the partition function, which costs O(n) time complexity. Hence the total time complexity is O(nlogn).</span></span></span></span></span></span></li>
+</ol>
+<h4> </h4>
+<h2><span> </span></h2>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main></p>
+<p></p>
+<p></p>

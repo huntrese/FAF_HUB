@@ -1,0 +1,38 @@
+<h3 class="h3"><span style="font-size: 1.75rem;">Properties of Tree data structure</span></h3>
+<ul class="points">
+<li><span>Recursive data structure:</span> The tree is also known as a <span><em>recursive data structure</em></span>. A tree can be defined as recursively because the distinguished node in a tree data structure is known as a <span><em>root node</em></span>. The root node of the tree contains a link to all the roots of its subtrees. The left subtree is shown in the yellow color in the below figure, and the right subtree is shown in the red color. The left subtree can be further split into subtrees shown in three different colors. Recursion means reducing something in a self-similar manner. So, this recursive property of the tree data structure is implemented in various applications.<br /><img src="https://static.javatpoint.com/ds/images/tree3.png" alt="Tree" /></li>
+<li><span>Number of edges:</span> If there are n nodes, then there would n-1 edges. Each arrow in the structure represents the link or path. Each node, except the root node, will have atleast one incoming link known as an edge. There would be one link for the parent-child relationship.</li>
+<li><span>Depth of node x:</span> The depth of node x can be defined as the length of the path from the root to the node x. One edge contributes one-unit length in the path. So, the depth of node x can also be defined as the number of edges between the root node and the node x. The root node has 0 depth.</li>
+<li><span>Height of node x:</span> The height of node x can be defined as the longest path from the node x to the leaf node.</li>
+</ul>
+<p>Based on the properties of the Tree data structure, trees are classified into various categories.</p>
+<h3 class="h3">Implementation of Tree</h3>
+<p>The tree data structure can be created by creating the nodes dynamically with the help of the pointers. The tree in the memory can be represented as shown below:</p>
+<p><img src="https://static.javatpoint.com/ds/images/tree4.png" alt="Tree" /><span></span></p>
+<p>The above figure shows the representation of the tree data structure in the memory. In the above structure, the node contains three fields. The second field stores the data; the first field stores the address of the left child, and the third field stores the address of the right child.</p>
+<p>In programming, the structure of a node can be defined as:</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">
+<div class="tools"></div>
+</div>
+<ol start="1" class="dp-j">
+<li class="alt"><span>struct node  </span></li>
+<li><span>{  </span></li>
+<li class="alt"><span>  <span class="keyword">int</span><span> data;  </span></span></li>
+<li><span>struct node *left;  </span></li>
+<li class="alt"><span>struct node *right;   </span></li>
+<li><span>}  </span></li>
+</ol></div>
+</div>
+<p>The above structure can only be defined for the binary trees because the binary tree can have utmost two children, and generic trees can have more than two children. The structure of the node for generic trees would be different as compared to the binary tree.</p>
+<h3 class="h3">Applications of trees</h3>
+<p>The following are the applications of trees:</p>
+<ul class="points">
+<li><span>Storing naturally hierarchical data:</span> Trees are used to store the data in the hierarchical structure. For example, the file system. The file system stored on the disc drive, the file and folder are in the form of the naturally hierarchical data and stored in the form of trees.</li>
+<li><span>Organize data:</span> It is used to organize data for efficient insertion, deletion and searching. For example, a binary tree has a logN time for searching an element.</li>
+<li><span>Trie:</span> It is a special kind of tree that is used to store the dictionary. It is a fast and efficient way for dynamic spell checking.</li>
+<li><span>Heap:</span> It is also a tree data structure implemented using arrays. It is used to implement priority queues.</li>
+<li><span>B-Tree and B+Tree:</span> B-Tree and B+Tree are the tree data structures used to implement indexing in databases.</li>
+<li><span>Routing table:</span> The tree data structure is also used to store the data in routing tables in the routers.</li>
+</ul>

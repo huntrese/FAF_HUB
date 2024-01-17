@@ -1,0 +1,29 @@
+Task for the current laboratory work can be found în the pdf attached, read it
+carefully and ask if there are any questions.
+
+For this one, the base task matches the task from "Lucrarea de laborator nr.
+4" from [Kulev PC SDA](https://else.fcim.utm.md/mod/resource/view.php?id=43198
+"Kulev PC SDA").pdf
+
+In your results screenshot, you should show the results în this format:
+
+  1. Input
+  2. Base problem result
+  3. Problem 1 + result 
+  4. Problem 2 + result
+  5. ...
+  6. Problem N + result 
+
+!!!IMPORTANT - Use latex template provided în [Things to know about laboratory
+works](https://else.fcim.utm.md/mod/feedback/view.php?id=43562) to create/edit
+your report
+
+Info related to hard problem: after each operation, consider displaying the
+total stack size + used + free
+
+  
+**UPDATE:** If you implement the hard task, also please consider the case with
+stack overflow, not underflow only  
+  
+
+Good Luck!

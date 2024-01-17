@@ -1,0 +1,58 @@
+<h1>Linked lists</h1>
+<hr />
+<h3><span style="font-size: 1.75rem;">Adding an item to the end of the list</span></h3>
+<p>To iterate over all the members of the linked list, we use a pointer called <code class="  language-c">current</code>. We set it to start from the head and then in each step, we advance the pointer to the next item in the list, until we reach the last item.</p>
+<pre class="  language-c"><code class="  language-c"><span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span>node_t <span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    node_t <span class="token operator">*</span> current <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>current<span class="token operator">-&gt;</span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        current <span class="token operator">=</span> current<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/* now we can add a new variable */</span>
+    current<span class="token operator">-&gt;</span>next <span class="token operator">=</span> <span class="token punctuation">(</span>node_t <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>node_t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    current<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>val <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    current<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The best use cases for linked lists are stacks and queues, which we will now implement:</p>
+<h3>Adding an item to the beginning of the list (pushing to the list)</h3>
+<p>To add to the beginning of the list, we will need to do the following:</p>
+<ol>
+<li>Create a new item and set its value</li>
+<li>Link the new item to point to the head of the list</li>
+<li>Set the head of the list to be our new item</li>
+</ol>
+<p>This will effectively create a new head to the list with a new value, and keep the rest of the list linked to it.</p>
+<p>Since we use a function to do this operation, we want to be able to modify the head variable. To do this, we must pass a pointer to the pointer variable (a double pointer) so we will be able to modify the pointer itself.</p>
+<pre class="  language-c"><code class="  language-c"><span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span>node_t <span class="token operator">*</span><span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    node_t <span class="token operator">*</span> new_node<span class="token punctuation">;</span>
+    new_node <span class="token operator">=</span> <span class="token punctuation">(</span>node_t <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>node_t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    new_node<span class="token operator">-&gt;</span>val <span class="token operator">=</span> val<span class="token punctuation">;</span>
+    new_node<span class="token operator">-&gt;</span>next <span class="token operator">=</span> <span class="token operator">*</span>head<span class="token punctuation">;</span>
+    <span class="token operator">*</span>head <span class="token operator">=</span> new_node<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3>Removing the first item (popping from the list)</h3>
+<p>To pop a variable, we will need to reverse this action:</p>
+<ol>
+<li>Take the next item that the head points to and save it</li>
+<li>Free the head item</li>
+<li>Set the head to be the next item that we've stored on the side</li>
+</ol>
+<p>Here is the code:</p>
+<pre class="  language-c"><code class="  language-c"><span class="token keyword">int</span> <span class="token function">pop</span><span class="token punctuation">(</span>node_t <span class="token operator">*</span><span class="token operator">*</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> retval <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    node_t <span class="token operator">*</span> next_node <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>head <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    next_node <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>head<span class="token punctuation">)</span><span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    retval <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>head<span class="token punctuation">)</span><span class="token operator">-&gt;</span>val<span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span><span class="token operator">*</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">*</span>head <span class="token operator">=</span> next_node<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> retval<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>

@@ -1,0 +1,3 @@
+Oscilaţii şi unde  
+  
+---

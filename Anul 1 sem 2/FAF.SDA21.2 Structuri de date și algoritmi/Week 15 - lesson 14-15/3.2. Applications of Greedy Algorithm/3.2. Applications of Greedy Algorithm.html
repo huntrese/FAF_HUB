@@ -1,0 +1,35 @@
+<h1 class="h1"><span style="font-size: 1.75rem;">Applications of Greedy Algorithm</span></h1>
+<ul class="points">
+<li>It is used in finding the shortest path.</li>
+<li>It is used to find the minimum spanning tree using the prim's algorithm or the Kruskal's algorithm.</li>
+<li>It is used in a job sequencing with a deadline.</li>
+<li>This algorithm is also used to solve the fractional knapsack problem.</li>
+</ul>
+<h3 class="h3">Pseudo code of Greedy Algorithm</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">
+<div class="tools"></div>
+</div>
+<ol start="1" class="dp-xml">
+<li class="alt"><span>Algorithm Greedy (a, n)  </span></li>
+<li><span>{  </span></li>
+<li class="alt"><span>   Solution <span class="attribute">:</span><span> = </span><span class="attribute-value">0</span><span>;  </span></span></li>
+<li><span>  for <span class="attribute">i</span><span> = </span><span class="attribute-value">0</span><span> to n do  </span></span></li>
+<li class="alt"><span>  {  </span></li>
+<li><span>      <span class="attribute">x:</span><span> = </span><span class="attribute-value">select</span><span>(a);  </span></span></li>
+<li class="alt"><span>     if feasible(solution, x)  </span></li>
+<li><span>    {  </span></li>
+<li class="alt"><span>        <span class="attribute">Solution:</span><span> = </span><span class="attribute-value">union</span><span>(solution , x)  </span></span></li>
+<li><span>    }  </span></li>
+<li class="alt"><span>       return solution;  </span></li>
+<li><span>  } }  </span></li>
+</ol></div>
+</div>
+<p>The above is the greedy algorithm. Initially, the solution is assigned with zero value. We pass the array and number of elements in the greedy algorithm. Inside the for loop, we select the element one by one and checks whether the solution is feasible or not. If the solution is feasible, then we perform the union.</p>
+<p><span>Let's understand through an example.</span></p>
+<p>Suppose there is a problem 'P'. I want to travel from A to B shown as below:</p>
+<p><span>P : A → B</span></p>
+<p>The problem is that we have to travel this journey from A to B. There are various solutions to go from A to B. We can go from A to B by <span>walk, car, bike, train, aeroplane</span>, etc. There is a constraint in the journey that we have to travel this journey within 12 hrs. If I go by train or aeroplane then only, I can cover this distance within 12 hrs. There are many solutions to this problem but there are only two solutions that satisfy the constraint.</p>
+<p>If we say that we have to cover the journey at the minimum cost. This means that we have to travel this distance as minimum as possible, so this problem is known as a minimization problem. Till now, we have two feasible solutions, i.e., one by train and another one by air. Since travelling by train will lead to the minimum cost so it is an optimal solution. An optimal solution is also the feasible solution, but providing the best result so that solution is the optimal solution with the minimum cost. There would be only one optimal solution.</p>
+<p>The problem that requires either minimum or maximum result then that problem is known as an optimization problem. Greedy method is one of the strategies used for solving the optimization problems.</p>

@@ -1,2 +1,2 @@
-# FAF_HUB
+# Moodle
 All moodle information across my years in UTM

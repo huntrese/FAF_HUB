@@ -1,0 +1,21 @@
+<h2 id="create">Create struct Variables</h2>
+<p>When a <code>struct</code> type is declared, no storage or memory is allocated. To allocate memory of a given structure type and work with it, we need to create variables.</p>
+<p>Here's how we create structure variables:</p>
+<pre><code class="c hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Person</span> {</span>
+  <span class="hljs-comment">// code</span>
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Person</span> <span class="hljs-title">person1</span>, <span class="hljs-title">person2</span>, <span class="hljs-title">p</span>[20];</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
+<p>Another way of creating a <code>struct</code> variable is:</p>
+<pre><code class="c hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Person</span> {</span>
+   <span class="hljs-comment">// code</span>
+} person1, person2, p[<span class="hljs-number">20</span>];</code></pre>
+<p>In both cases,</p>
+<ul>
+<li><var>person1</var> and <var>person2</var> are <code>struct Person</code> variables</li>
+<li><var>p[]</var> is a <code>struct Person</code> array of size 20.</li>
+<li></li>
+</ul>

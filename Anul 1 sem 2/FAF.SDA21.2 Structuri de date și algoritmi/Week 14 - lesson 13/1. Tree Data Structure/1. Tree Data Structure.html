@@ -1,0 +1,135 @@
+<h1 class="h1">Tree Data Structure</h1>
+<p>We read the linear data structures like an array, linked list, stack and queue in which all the elements are arranged in a sequential manner. The different data structures are used for different kinds of data.</p>
+<p><span>Some factors are considered for choosing the data structure:</span></p>
+<ul class="points">
+<li><span>What type of data needs to be stored</span>?: It might be a possibility that a certain data structure can be the best fit for some kind of data.</li>
+<li><span>Cost of operations:</span> If we want to minimize the cost for the operations for the most frequently performed operations. For example, we have a simple list on which we have to perform the search operation; then, we can create an array in which elements are stored in sorted order to perform the <span><em>binary search</em></span>. The binary search works very fast for the simple list as it divides the search space into half.</li>
+<li><span>Memory usage:</span> Sometimes, we want a data structure that utilizes less memory.</li>
+</ul>
+<p><span><em>A tree</em></span> is also one of the data structures that represent hierarchical data. Suppose we want to show the employees and their positions in the hierarchical form then it can be represented as shown below:</p>
+<p><img src="https://static.javatpoint.com/ds/images/tree.png" alt="Tree" /><span></span></p>
+<p>The above tree shows the <span>organization hierarchy</span> of some company. In the above structure, <span><em>john</em></span> is the <span>CEO</span> of the company, and John has two direct reports named as <span><em>Steve</em></span> and <span><em>Rohan</em></span>. Steve has three direct reports named <span><em>Lee, Bob, Ella</em></span> where <span><em>Steve</em></span> is a manager. Bob has two direct reports named <span><em>Sal</em></span> and <span><em>Emma</em></span>. <span>Emma</span> has two direct reports named <span><em>Tom</em></span> and <span><em>Raj</em></span>. Tom has one direct report named <span><em>Bill</em></span>. This particular logical structure is known as a <span><em>Tree</em></span>. Its structure is similar to the real tree, so it is named a <span><em>Tree</em></span>. In this structure, the <span><em>root</em></span> is at the top, and its branches are moving in a downward direction. Therefore, we can say that the Tree data structure is an efficient way of storing the data in a hierarchical way.</p>
+<p><span>Let's understand some key points of the Tree data structure.</span></p>
+<ul class="points">
+<li>A tree data structure is defined as a collection of objects or entities known as nodes that are linked together to represent or simulate hierarchy.</li>
+<li>A tree data structure is a non-linear data structure because it does not store in a sequential manner. It is a hierarchical structure as elements in a Tree are arranged in multiple levels.</li>
+<li>In the Tree data structure, the topmost node is known as a root node. Each node contains some data, and data can be of any type. In the above tree structure, the node contains the name of the employee, so the type of data would be a string.</li>
+<li>Each node contains some data and the link or reference of other nodes that can be called children.</li>
+</ul>
+<p><span>Some basic terms used in Tree data structure.</span></p>
+<p>Let's consider the tree structure, which is shown below:</p>
+<p><img src="https://static.javatpoint.com/ds/images/tree2.png" alt="Tree" /><span></span></p>
+<p>In the above structure, each node is labeled with some number. Each arrow shown in the above figure is known as a <span><em>link</em></span> between the two nodes.</p>
+<ul class="points">
+<li><span>Root:</span> The root node is the topmost node in the tree hierarchy. In other words, the root node is the one that doesn't have any parent. In the above structure, node numbered 1 is <span>the root node of the tree.</span> If a node is directly linked to some other node, it would be called a parent-child relationship.</li>
+<li><span>Child node:</span> If the node is a descendant of any node, then the node is known as a child node.</li>
+<li><span>Parent:</span> If the node contains any sub-node, then that node is said to be the parent of that sub-node.</li>
+<li><span>Sibling:</span> The nodes that have the same parent are known as siblings.</li>
+<li><span>Leaf Node:-</span> The node of the tree, which doesn't have any child node, is called a leaf node. A leaf node is the bottom-most node of the tree. There can be any number of leaf nodes present in a general tree. Leaf nodes can also be called external nodes.</li>
+<li><span>Internal nodes:</span> A node has atleast one child node known as an <span><em>internal</em></span></li>
+<li><span>Ancestor node:-</span> An ancestor of a node is any predecessor node on a path from the root to that node. The root node doesn't have any ancestors. In the tree shown in the above image, nodes 1, 2, and 5 are the ancestors of node 10.</li>
+<li><span>Descendant:</span> The immediate successor of the given node is known as a descendant of a node. In the above figure, 10 is the descendant of node 5.</li>
+</ul>
+<h3 class="h3">Properties of Tree data structure</h3>
+<ul class="points">
+<li><span>Recursive data structure:</span> The tree is also known as a <span><em>recursive data structure</em></span>. A tree can be defined as recursively because the distinguished node in a tree data structure is known as a <span><em>root node</em></span>. The root node of the tree contains a link to all the roots of its subtrees. The left subtree is shown in the yellow color in the below figure, and the right subtree is shown in the red color. The left subtree can be further split into subtrees shown in three different colors. Recursion means reducing something in a self-similar manner. So, this recursive property of the tree data structure is implemented in various applications.<br /><img src="https://static.javatpoint.com/ds/images/tree3.png" alt="Tree" /></li>
+<li><span>Number of edges:</span> If there are n nodes, then there would n-1 edges. Each arrow in the structure represents the link or path. Each node, except the root node, will have atleast one incoming link known as an edge. There would be one link for the parent-child relationship.</li>
+<li><span>Depth of node x:</span> The depth of node x can be defined as the length of the path from the root to the node x. One edge contributes one-unit length in the path. So, the depth of node x can also be defined as the number of edges between the root node and the node x. The root node has 0 depth.</li>
+<li><span>Height of node x:</span> The height of node x can be defined as the longest path from the node x to the leaf node.</li>
+</ul>
+<p>Based on the properties of the Tree data structure, trees are classified into various categories.</p>
+<h3 class="h3">Implementation of Tree</h3>
+<p>The tree data structure can be created by creating the nodes dynamically with the help of the pointers. The tree in the memory can be represented as shown below:</p>
+<p><img src="https://static.javatpoint.com/ds/images/tree4.png" alt="Tree" /><span></span></p>
+<p>The above figure shows the representation of the tree data structure in the memory. In the above structure, the node contains three fields. The second field stores the data; the first field stores the address of the left child, and the third field stores the address of the right child.</p>
+<p>In programming, the structure of a node can be defined as:</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">
+<div class="tools"></div>
+</div>
+<ol start="1" class="dp-j">
+<li class="alt"><span>struct node  </span></li>
+<li><span>{  </span></li>
+<li class="alt"><span>  <span class="keyword">int</span><span> data;  </span></span></li>
+<li><span>struct node *left;  </span></li>
+<li class="alt"><span>struct node *right;   </span></li>
+<li><span>}  </span></li>
+</ol></div>
+</div>
+<p>The above structure can only be defined for the binary trees because the binary tree can have utmost two children, and generic trees can have more than two children. The structure of the node for generic trees would be different as compared to the binary tree.</p>
+<h3 class="h3">Applications of trees</h3>
+<p>The following are the applications of trees:</p>
+<ul class="points">
+<li><span>Storing naturally hierarchical data:</span> Trees are used to store the data in the hierarchical structure. For example, the file system. The file system stored on the disc drive, the file and folder are in the form of the naturally hierarchical data and stored in the form of trees.</li>
+<li><span>Organize data:</span> It is used to organize data for efficient insertion, deletion and searching. For example, a binary tree has a logN time for searching an element.</li>
+<li><span>Trie:</span> It is a special kind of tree that is used to store the dictionary. It is a fast and efficient way for dynamic spell checking.</li>
+<li><span>Heap:</span> It is also a tree data structure implemented using arrays. It is used to implement priority queues.</li>
+<li><span>B-Tree and B+Tree:</span> B-Tree and B+Tree are the tree data structures used to implement indexing in databases.</li>
+<li><span>Routing table:</span> The tree data structure is also used to store the data in routing tables in the routers.</li>
+</ul>
+<h3 class="h3">Types of Tree data structure</h3>
+<p><span>The following are the types of a tree data structure:</span></p>
+<ul class="points">
+<li><span>General tree:</span> The general tree is one of the types of tree data structure. In the general tree, a node can have either 0 or maximum n number of nodes. There is no restriction imposed on the degree of the node (the number of nodes that a node can contain). The topmost node in a general tree is known as a root node. The children of the parent node are known as <span><em>subtrees</em></span>.<br /><img src="https://static.javatpoint.com/ds/images/types-of-tree1.png" alt="Tree" /><br />There can be <span><em>n</em></span> number of subtrees in a general tree. In the general tree, the subtrees are unordered as the nodes in the subtree cannot be ordered.<br />Every non-empty tree has a downward edge, and these edges are connected to the nodes known as <span><em>child nodes</em></span>. The root node is labeled with level 0. The nodes that have the same parent are known as <span><em>siblings</em></span>.</li>
+<li><span><a href="https://www.javatpoint.com/binary-tree">Binary tree</a>:</span> Here, binary name itself suggests two numbers, i.e., 0 and 1. In a binary tree, each node in a tree can have utmost two child nodes. Here, utmost means whether the node has 0 nodes, 1 node or 2 nodes.<br /><img src="https://static.javatpoint.com/ds/images/types-of-tree2.png" alt="Tree" /><br /><span>To know more about the binary tree, click on the link given below:</span><br /><a href="https://www.javatpoint.com/binary-tree">https://www.javatpoint.com/binary-tree</a></li>
+<li><span><a href="https://www.javatpoint.com/binary-search-tree">Binary Search tree</a>:</span> Binary search tree is a non-linear data structure in which one node is connected to <span><em>n</em></span> number of nodes. It is a node-based data structure. A node can be represented in a binary search tree with three fields, i.e., data part, left-child, and right-child. A node can be connected to the utmost two child nodes in a binary search tree, so the node contains two pointers (left child and right child pointer).<br />Every node in the left subtree must contain a value less than the value of the root node, and the value of each node in the right subtree must be bigger than the value of the root node.</li>
+</ul>
+<p>A node can be created with the help of a user-defined data type known as <span><em>struct,</em></span> as shown below:</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">
+<div class="tools"></div>
+</div>
+<ol start="1" class="dp-j">
+<li class="alt"><span>struct node  </span></li>
+<li><span>{  </span></li>
+<li class="alt"><span>    <span class="keyword">int</span><span> data;  </span></span></li>
+<li><span>    struct node *left;  </span></li>
+<li class="alt"><span>struct node *right;   </span></li>
+<li><span>}  </span></li>
+</ol></div>
+</div>
+<p>The above is the node structure with three fields: data field, the second field is the left pointer of the node type, and the third field is the right pointer of the node type.</p>
+<p><span>To know more about the binary search tree, click on the link given below:</span></p>
+<p><a href="https://www.javatpoint.com/binary-search-tree">https://www.javatpoint.com/binary-search-tree</a></p>
+<ul class="points">
+<li><span><a href="https://www.javatpoint.com/avl-tree">AVL tree</a></span></li>
+</ul>
+<p>It is one of the types of the binary tree, or we can say that it is a variant of the binary search tree. AVL tree satisfies the property of the <span><em>binary tree</em></span> as well as of the <span><em>binary search tree</em></span>. It is a self-balancing binary search tree that was invented by <span><em>Adelson Velsky Lindas</em></span>. Here, self-balancing means that balancing the heights of left subtree and right subtree. This balancing is measured in terms of the <span><em>balancing factor</em></span>.</p>
+<p>We can consider a tree as an AVL tree if the tree obeys the binary search tree as well as a balancing factor. The balancing factor can be defined as the <span><em>difference between the height of the left subtree and the height of the right subtree</em></span>. The balancing factor's value must be either 0, -1, or 1; therefore, each node in the AVL tree should have the value of the balancing factor either as 0, -1, or 1.</p>
+<p><span>To know more about the AVL tree, click on the link given below:</span></p>
+<p><a href="https://www.javatpoint.com/avl-tree">https://www.javatpoint.com/avl-tree</a></p>
+<ul class="points">
+<li><span><a href="https://www.javatpoint.com/red-black-tree">Red-Black Tree</a></span></li>
+</ul>
+<p><span>The red-Black tree</span> is the binary search tree. The prerequisite of the Red-Black tree is that we should know about the binary search tree. In a binary search tree, the value of the left-subtree should be less than the value of that node, and the value of the right-subtree should be greater than the value of that node. As we know that the time complexity of binary search in the average case is log<sub>2</sub>n, the best case is O(1), and the worst case is O(n).</p>
+<p>When any operation is performed on the tree, we want our tree to be balanced so that all the operations like searching, insertion, deletion, etc., take less time, and all these operations will have the time complexity of <span><em>log<sub>2</sub>n.</em></span></p>
+<p><span><em>The red-black tree</em></span> is a self-balancing binary search tree. AVL tree is also a height balancing binary search tree then <span>why do we require a Red-Black tree</span>. In the AVL tree, we do not know how many rotations would be required to balance the tree, but in the Red-black tree, a maximum of 2 rotations are required to balance the tree. It contains one extra bit that represents either the red or black color of a node to ensure the balancing of the tree.</p>
+<ul class="points">
+<li><span>Splay tree</span></li>
+</ul>
+<p>The splay tree data structure is also binary search tree in which recently accessed element is placed at the root position of tree by performing some rotation operations. Here, <span><em>splaying</em></span> means the recently accessed node. It is a <span><em>self-balancing</em></span> binary search tree having no explicit balance condition like <span>AVL</span> tree.</p>
+<p>It might be a possibility that height of the splay tree is not balanced, i.e., height of both left and right subtrees may differ, but the operations in splay tree takes order of <span>logN</span> time where <span>n</span> is the number of nodes.</p>
+<p>Splay tree is a balanced tree but it cannot be considered as a height balanced tree because after each operation, rotation is performed which leads to a balanced tree.</p>
+<ul class="points">
+<li><span>Treap</span></li>
+</ul>
+<p>Treap data structure came from the Tree and Heap data structure. So, it comprises the properties of both Tree and Heap data structures. In Binary search tree, each node on the left subtree must be equal or less than the value of the root node and each node on the right subtree must be equal or greater than the value of the root node. In heap data structure, both right and left subtrees contain larger keys than the root; therefore, we can say that the root node contains the lowest value.</p>
+<p>In treap data structure, each node has both <span><em>key</em></span> and <span><em>priority</em></span> where key is derived from the Binary search tree and priority is derived from the heap data structure.</p>
+<p>The <span>Treap</span> data structure follows two properties which are given below:</p>
+<ul class="points">
+<li>Right child of a node&gt;=current node and left child of a node &lt;=current node (binary tree)</li>
+<li>Children of any subtree must be greater than the node (heap)</li>
+</ul>
+<ul class="points">
+<li><span><a href="https://www.javatpoint.com/b-tree">B-tree</a></span></li>
+</ul>
+<p>B-tree is a balanced <span>m-way</span> tree where <span>m</span> defines the order of the tree. Till now, we read that the node contains only one key but b-tree can have more than one key, and more than 2 children. It always maintains the sorted data. In binary tree, it is possible that leaf nodes can be at different levels, but in b-tree, all the leaf nodes must be at the same level.</p>
+<p><span>If order is m then node has the following properties:</span></p>
+<ul class="points">
+<li>Each node in a b-tree can have maximum <span>m</span> children</li>
+<li>For minimum children, a leaf node has 0 children, root node has minimum 2 children and internal node has minimum ceiling of m/2 children. For example, the value of m is 5 which means that a node can have 5 children and internal nodes can contain maximum 3 children.</li>
+<li>Each node has maximum (m-1) keys.</li>
+</ul>
+<p>The root node must contain minimum 1 key and all other nodes must contain atleast <span>ceiling of m/2 minus 1</span> keys.</p>

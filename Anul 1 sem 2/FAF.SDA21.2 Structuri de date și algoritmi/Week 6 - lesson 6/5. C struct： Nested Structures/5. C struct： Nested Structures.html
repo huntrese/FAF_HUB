@@ -1,0 +1,55 @@
+<h2 id="nested-structures">Nested Structures</h2>
+<p>You can create structures within a structure in C programming. For example,</p>
+<pre><code class="c hljs cpp"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">complex</span> {</span>
+  <span class="hljs-keyword">int</span> imag;
+  <span class="hljs-keyword">float</span> real;
+};
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">number</span> {</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">complex</span> <span class="hljs-title">comp</span>;</span>
+  <span class="hljs-keyword">int</span> integers;
+} num1, num2;</code></pre>
+<p>Suppose, you want to set <var>imag</var> of <var>num2</var> variable to <span>11</span>. Here's how you can do it:</p>
+<pre><code class="c hljs cpp">num2.comp.imag = <span class="hljs-number">11</span>;</code></pre>
+<hr />
+<h3>Example 3: C Nested Structures</h3>
+<div class="code-editor">
+<div class="code-editor__area">
+<div class="pre-code-wrapper">
+<div title="Click to copy" class="copy-code-button"></div>
+<pre class="c-exec"><code class="c hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">complex</span> {</span>
+  <span class="hljs-keyword">int</span> imag;
+  <span class="hljs-keyword">float</span> real;
+};
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">number</span> {</span>
+  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">complex</span> <span class="hljs-title">comp</span>;</span>
+  <span class="hljs-keyword">int</span> integer;
+} num1;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+
+  <span class="hljs-comment">// initialize complex variables</span>
+  num1.comp.imag = <span class="hljs-number">11</span>;
+  num1.comp.real = <span class="hljs-number">5.25</span>;
+
+  <span class="hljs-comment">// initialize number variable</span>
+  num1.integer = <span class="hljs-number">6</span>;
+	
+  <span class="hljs-comment">// print struct variables</span>
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Imaginary Part: %d\n"</span>, num1.comp.imag);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Real Part: %.2f\n"</span>, num1.comp.real);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Integer: %d"</span>, num1.integer);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
+</div>
+</div>
+<div class="code-editor__action"><a href="https://www.programiz.com/c-programming/online-compiler" class="btn btn--outlined-dark btn--smallest d-flex align-items-center run-code-button" target="_blank">Run Code<svg class="programiz-icon programiz-icon--small ml-2x"><use xlink:href="/sites/all/themes/programiz/assets/feather-sprite.svg#chevrons-right"></use></svg></a></div>
+</div>
+<p><span>Output</span></p>
+<pre><samp>Imaginary Part: 11
+Real Part: 5.25
+Integer: 6</samp></pre>

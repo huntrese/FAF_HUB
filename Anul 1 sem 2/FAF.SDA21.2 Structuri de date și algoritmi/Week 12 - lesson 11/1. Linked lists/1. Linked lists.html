@@ -1,0 +1,16 @@
+<h1>Linked lists</h1>
+<hr />
+<h3>Introduction</h3>
+<p>Linked lists are the best and simplest example of a dynamic data structure that uses pointers for its implementation. However, understanding pointers is crucial to understanding how linked lists work, so if you've skipped the pointers tutorial, you should go back and redo it. You must also be familiar with dynamic memory allocation and structures.</p>
+<p>Essentially, linked lists function as an array that can grow and shrink as needed, from any point in the array.</p>
+<p>Linked lists have a few advantages over arrays:</p>
+<ol>
+<li>Items can be added or removed from the middle of the list</li>
+<li>There is no need to define an initial size</li>
+</ol>
+<p>However, linked lists also have a few disadvantages:</p>
+<ol>
+<li>There is no "random" access - it is impossible to reach the nth item in the array without first iterating over all items up until that item. This means we have to start from the beginning of the list and count how many times we advance in the list until we get to the desired item.</li>
+<li>Dynamic memory allocation and pointers are required, which complicates the code and increases the risk of memory leaks and segment faults.</li>
+<li>Linked lists have a much larger overhead over arrays, since linked list items are dynamically allocated (which is less efficient in memory usage) and each item in the list also must store an additional pointer.</li>
+</ol>

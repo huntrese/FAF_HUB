@@ -1,0 +1,55 @@
+<h2 id="access-members">Access Members of a Structure</h2>
+<p>There are two types of operators used for accessing members of a structure.</p>
+<ol>
+<li><code>.</code> - Member operator</li>
+<li><code>-&gt;</code> - Structure pointer operator (will be discussed in the next tutorial)</li>
+</ol>
+<p>Suppose, you want to access the <var>salary</var> of <var>person2</var>. Here's how you can do it.</p>
+<pre><code class="c hljs cpp">person2.salary</code></pre>
+<hr />
+<h2 id="example1">Example 1: C structs</h2>
+<div class="code-editor">
+<div class="code-editor__area">
+<div class="pre-code-wrapper">
+<div title="Click to copy" class="copy-code-button"></div>
+<pre class="c-exec"><code class="c hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+
+<span class="hljs-comment">// create struct with person1 variable</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Person</span> {</span>
+  <span class="hljs-keyword">char</span> name[<span class="hljs-number">50</span>];
+  <span class="hljs-keyword">int</span> citNo;
+  <span class="hljs-keyword">float</span> salary;
+} person1;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+
+  <span class="hljs-comment">// assign value to name of person1</span>
+  <span class="hljs-built_in">strcpy</span>(person1.name, <span class="hljs-string">"George Orwell"</span>);
+
+  <span class="hljs-comment">// assign values to other person1 variables</span>
+  person1.citNo = <span class="hljs-number">1984</span>;
+  person1. salary = <span class="hljs-number">2500</span>;
+
+  <span class="hljs-comment">// print struct variables</span>
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Name: %s\n"</span>, person1.name);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Citizenship No.: %d\n"</span>, person1.citNo);
+  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Salary: %.2f"</span>, person1.salary);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
+</div>
+</div>
+<div class="code-editor__action"><a href="https://www.programiz.com/c-programming/online-compiler" class="btn btn--outlined-dark btn--smallest d-flex align-items-center run-code-button" target="_blank">Run Code<svg class="programiz-icon programiz-icon--small ml-2x"><use xlink:href="/sites/all/themes/programiz/assets/feather-sprite.svg#chevrons-right"></use></svg></a></div>
+</div>
+<p><span>Output</span></p>
+<pre><samp>Name: George Orwell
+Citizenship No.: 1984
+Salary: 2500.00</samp></pre>
+<p>In this program, we have created a <code>struct</code> named <code>Person</code>. We have also created a variable of <code>Person</code> named <var>person1</var>.</p>
+<p>In <code>main()</code>, we have assigned values to the variables defined in <code>Person</code> for the <var>person1</var> object.</p>
+<pre><code class="c hljs cpp"><span class="hljs-built_in">strcpy</span>(person1.name, <span class="hljs-string">"George Orwell"</span>);
+person1.citNo = <span class="hljs-number">1984</span>;
+person1. salary = <span class="hljs-number">2500</span>;</code></pre>
+<p>Notice that we have used <code>strcpy()</code> function to assign the value to <var>person1.name</var>.</p>
+<p>This is because <var>name</var> is a <code>char</code> array (<a href="https://www.programiz.com/c-programming/c-strings">C-string</a>) and we cannot use the assignment operator <code>=</code> with it after we have declared the string.</p>
